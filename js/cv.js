@@ -1,55 +1,6 @@
-const _ = require('lodash')
-const osis = require('./osis')
-
-const CV = function(book, reason) {
-  this.book = book
-  this.reason = reason
-  this.chapter = null
-  this.from = null
-  this.to = null
-  this.range = null
-}
-
-const getBook = strBook => {
-  for (let book of osis) {
-    if (strBook === book.id.toLowerCase()) {
-      return new CV(book, 'matches book.id')
-    }
-    if (book.abbr.includes(strBook)) {
-      return new CV(book, 'matches a book.abbr')
-    }
-    if (strBook.startsWith(book.start) && strBook.length <= book.name.replace(/ /g, '').length) {
-      return new CV(book, 'starts with book.start')
-    }
-  }
-  return null
-}
-
-const getChapter = (cv, strChapter) => {
-  const chapter = parseInt(strChapter)
-  if (0 < chapter && chapter <= cv.book.chapters) {
-    cv.chapter = chapter
-    return cv
-  }
-  return null
-}
-
-const getVerses = (cv, strVerses) => {
-  const parts = strVerses.split('-')
-  let from = parseInt(parts[0])
-  let to = parseInt(parts[parts.length - 1])
-  if (from > to) {
-    const temp = from
-    from = to
-    to = temp
-  }
-  if (from === 0) return null
-  if (to > 176) return null // psalm 119:176
-  cv.from = from
-  cv.to = to
-  cv.range = _.range(cv.from, cv.to + 1)
-  return cv
-}
+const getBook = require('./getBook')
+const getChapter = require('./getChapter')
+const getVerses = require('./getVerses')
 
 const getChapterAndVerse = (str = '') => {
 
