@@ -9,3 +9,4 @@
 [![node](https://img.shields.io/node/v/node-template-18.svg)](https://www.npmjs.com/package/node-template-18)
 
 **Template for creating an npm package in 2018**
+
