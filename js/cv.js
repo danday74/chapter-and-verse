@@ -2,7 +2,7 @@ const getBook = require('./getBook')
 const getChapter = require('./getChapter')
 const getVerses = require('./getVerses')
 
-const getChapterAndVerse = (str = '') => {
+const cv = (str = '') => {
 
   if (typeof str !== 'string') return null
 
@@ -87,4 +87,4 @@ const getChapterAndVerse = (str = '') => {
   }
 }
 
-module.exports = getChapterAndVerse
+module.exports = cv

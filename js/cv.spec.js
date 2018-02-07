@@ -196,5 +196,10 @@ describe('chapter-and-verse', () => {
       cv = chapterAndVerse(9)
       expect(cv).to.be.null
     })
+
+    it('no arg fails', () => {
+      cv = chapterAndVerse()
+      expect(cv).to.be.null
+    })
   })
 })
