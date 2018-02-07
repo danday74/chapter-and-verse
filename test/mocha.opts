@@ -1,0 +1,5 @@
+--recursive
+--reporter spec
+--require ./test/server.bootstrap
+--require ./test/test.bootstrap
+--colors

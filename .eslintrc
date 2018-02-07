@@ -1,0 +1,30 @@
+{
+  "env": {
+    "browser": false,
+    "es6": true,
+    "mocha": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "plugins": [],
+  "rules": {
+    "no-console": 0,
+    "quotes": [
+      2,
+      "single"
+    ],
+    "semi": [
+      2,
+      "never"
+    ],
+    "arrow-parens": [
+      2,
+      "as-needed"
+    ]
+  },
+  "globals": {}
+}
