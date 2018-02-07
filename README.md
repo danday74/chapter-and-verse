@@ -1,2 +1,2 @@
-# chapter-and-verse
-Given some text returns an object with the book, chapter and bible verse
+# node-template-2018
+Template for creating an npm package in 2018
