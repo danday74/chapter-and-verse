@@ -23,6 +23,7 @@ const CV = function(book, reason) {
 }
 
 const getBook = strBook => {
+
   for (let book of osis) {
     if (strBook === book.id.toLowerCase()) {
       return new CV(book, 'matches book.id')
