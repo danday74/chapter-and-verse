@@ -1,7 +1,7 @@
 {
   "name": "chapter-and-verse",
-  "version": "1.0.1",
-  "description": "Given a string returns an object with the book, chapter and bible verse",
+  "version": "1.0.2",
+  "description": "Given a string returns an object with the bible book, chapter and verse",
   "author": "danday74",
   "license": "ISC",
   "main": "index.js",
