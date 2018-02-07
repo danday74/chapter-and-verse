@@ -1,6 +1,6 @@
 {
   "name": "node-template-18",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "danday74",
   "description": "Template for creating an npm package in 2018",
   "main": "index.js",
