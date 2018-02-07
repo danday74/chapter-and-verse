@@ -27,6 +27,7 @@ describe('chapter-and-verse', () => {
           },
           reason: 'matches book.id'
         }, mergeBook))
+      expect(cv.toString()).to.equal('Exodus')
     })
 
     it('matches a book.abbr', () => {
@@ -38,6 +39,7 @@ describe('chapter-and-verse', () => {
           },
           reason: 'matches a book.abbr'
         }, mergeBook))
+      expect(cv.toString()).to.equal('Exodus')
     })
 
     it('starts with book.start', () => {
@@ -49,6 +51,7 @@ describe('chapter-and-verse', () => {
           },
           reason: 'starts with book.start'
         }, mergeBook))
+      expect(cv.toString()).to.equal('Exodus')
 
       cv = chapterAndVerse('Exodus')
       expect(cv).to.containSubset(
@@ -58,6 +61,7 @@ describe('chapter-and-verse', () => {
           },
           reason: 'starts with book.start'
         }, mergeBook))
+      expect(cv.toString()).to.equal('Exodus')
     })
 
     it('fails', () => {
@@ -80,29 +84,31 @@ describe('chapter-and-verse', () => {
         range: null,
         reason: 'starts with book.start'
       })
+      expect(cv.toString()).to.equal('Exodus 40')
     })
 
     it('sets chapter and verse for single chapter book', () => {
-      cv = chapterAndVerse('oba 40')
+      cv = chapterAndVerse('oba 176')
       expect(cv).to.containSubset({
         book: {
           name: 'Obadiah'
         },
         chapter: 1,
-        from: 40,
-        to: 40,
-        range: [40],
+        from: 176,
+        to: 176,
+        range: [176],
         reason: 'starts with book.start'
       })
-    })
-
-    it('fails where chapter does not exist', () => {
-      cv = chapterAndVerse('exo 41')
-      expect(cv).to.be.null
+      expect(cv.toString()).to.equal('Obadiah 1:176')
     })
 
     it('fails where chapter is zero', () => {
       cv = chapterAndVerse('exo 0')
+      expect(cv).to.be.null
+    })
+
+    it('fails where chapter does not exist', () => {
+      cv = chapterAndVerse('exo 41')
       expect(cv).to.be.null
     })
 
@@ -132,6 +138,7 @@ describe('chapter-and-verse', () => {
         range: [40, 41, 42, 43, 44, 45],
         reason: 'starts with book.start'
       })
+      expect(cv.toString()).to.equal('Obadiah 1:40-45')
     })
 
     it('fails for multi chapter book', () => {
@@ -155,6 +162,7 @@ describe('chapter-and-verse', () => {
         range: [57],
         reason: 'starts with book.start'
       })
+      expect(cv.toString()).to.equal('Exodus 7:57')
     })
   })
 
@@ -173,6 +181,7 @@ describe('chapter-and-verse', () => {
         range: [99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111],
         reason: 'starts with book.start'
       })
+      expect(cv.toString()).to.equal('Exodus 33:99-111')
     })
   })
 

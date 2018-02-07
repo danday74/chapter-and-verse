@@ -7,6 +7,19 @@ const CV = function(book, reason) {
   this.from = null
   this.to = null
   this.range = null
+  this.toString = () => {
+    let str = this.book.name
+    if (this.chapter) {
+      str += ` ${this.chapter}`
+      if (this.from) {
+        str += `:${this.from}`
+        if (this.from < this.to) {
+          str += `-${this.to}`
+        }
+      }
+    }
+    return str
+  }
 }
 
 const getBook = strBook => {
