@@ -1,7 +1,7 @@
-const example = require('./js/example')
+const cv = require('./js/cv')
 
-const main = () => {
-  return example()
+const main = str => {
+  return cv(str)
 }
 
 module.exports = main
