@@ -7,3 +7,4 @@
 [![npm](https://img.shields.io/npm/dm/chapter-and-verse.svg)](https://www.npmjs.com/package/chapter-and-verse)
 
 **Given a string returns an object with the book, chapter and bible verse**
+
