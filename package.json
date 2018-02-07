@@ -1,7 +1,7 @@
 {
-  "name": "node-template-18",
-  "version": "1.0.3",
-  "description": "Template for creating an npm package in 2018",
+  "name": "chapter-and-verse",
+  "version": "1.0.0",
+  "description": "Given a string returns an object with the book, chapter and bible verse",
   "author": "danday74",
   "license": "ISC",
   "main": "index.js",
