@@ -81,7 +81,13 @@ cv.toShortString() // returns 'Obadiah 1-3' .. difference because Obadiah only h
 # Author says
 
 The Lord bless you and keep you;
+
 the Lord make his face to shine upon you and be gracious to you;
+
 the Lord lift up his countenance upon you and give you peace.
 
 [Numbers 6:24-26 ESV](https://www.biblegateway.com/passage/?search=Numbers+6%3A24-26&version=ESV "Jesus loves you")
+
+
+
+<br><br><br>
