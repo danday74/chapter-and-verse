@@ -1,6 +1,6 @@
 {
   "name": "chapter-and-verse",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Given a string returns an object with the bible book, chapter and verse",
   "author": "danday74",
   "license": "ISC",
