@@ -1,6 +1,6 @@
 {
   "name": "chapter-and-verse",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Given a string returns an object with the bible book, chapter and verse",
   "author": "danday74",
   "license": "ISC",
@@ -24,7 +24,21 @@
     "mocha": "^5.0.0",
     "npm-run-all": "^4.1.2"
   },
-  "comment": "coveralls@2.11.16",
+  "keywords": [
+    "bible",
+    "bible book",
+    "bible books",
+    "bible chapter",
+    "bible chapters",
+    "bible verse",
+    "bible verses",
+    "bible ref",
+    "bible refs",
+    "bible reference",
+    "bible references",
+    "bible json",
+    "bible object"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/danday74/chapter-and-verse.git"
@@ -32,5 +46,6 @@
   "bugs": {
     "url": "https://github.com/danday74/chapter-and-verse/issues"
   },
-  "homepage": "https://github.com/danday74/chapter-and-verse#readme"
+  "homepage": "https://github.com/danday74/chapter-and-verse#readme",
+  "comment": "coveralls@2.11.16"
 }
