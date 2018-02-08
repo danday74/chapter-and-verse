@@ -20,6 +20,17 @@ const CV = function(book, reason) {
     }
     return str
   }
+  this.toShortString = () => {
+    if (this.book.chapters > 1) return this.toString()
+    let str = this.book.name
+    if (this.from) {
+      str += ` ${this.from}`
+      if (this.from < this.to) {
+        str += `-${this.to}`
+      }
+    }
+    return str
+  }
 }
 
 const getBook = strBook => {

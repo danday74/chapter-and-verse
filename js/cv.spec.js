@@ -28,6 +28,7 @@ describe('chapter-and-verse', () => {
           reason: 'matches book.id'
         }, mergeBook))
       expect(cv.toString()).to.equal('Exodus')
+      expect(cv.toShortString()).to.equal('Exodus')
     })
 
     it('matches a book.abbr', () => {
@@ -40,6 +41,7 @@ describe('chapter-and-verse', () => {
           reason: 'matches a book.abbr'
         }, mergeBook))
       expect(cv.toString()).to.equal('Exodus')
+      expect(cv.toShortString()).to.equal('Exodus')
     })
 
     it('starts with book.start', () => {
@@ -52,16 +54,18 @@ describe('chapter-and-verse', () => {
           reason: 'starts with book.start'
         }, mergeBook))
       expect(cv.toString()).to.equal('Exodus')
+      expect(cv.toShortString()).to.equal('Exodus')
 
-      cv = chapterAndVerse('Exodus')
+      cv = chapterAndVerse('Obadiah')
       expect(cv).to.containSubset(
         _.assign({
           book: {
-            name: 'Exodus'
+            name: 'Obadiah'
           },
           reason: 'starts with book.start'
         }, mergeBook))
-      expect(cv.toString()).to.equal('Exodus')
+      expect(cv.toString()).to.equal('Obadiah')
+      expect(cv.toShortString()).to.equal('Obadiah')
     })
 
     it('fails', () => {
@@ -85,6 +89,7 @@ describe('chapter-and-verse', () => {
         reason: 'starts with book.start'
       })
       expect(cv.toString()).to.equal('Exodus 40')
+      expect(cv.toShortString()).to.equal('Exodus 40')
     })
 
     it('sets chapter and verse for single chapter book', () => {
@@ -100,6 +105,7 @@ describe('chapter-and-verse', () => {
         reason: 'starts with book.start'
       })
       expect(cv.toString()).to.equal('Obadiah 1:176')
+      expect(cv.toShortString()).to.equal('Obadiah 176')
     })
 
     it('fails where chapter is zero', () => {
@@ -139,6 +145,7 @@ describe('chapter-and-verse', () => {
         reason: 'starts with book.start'
       })
       expect(cv.toString()).to.equal('Obadiah 1:40-45')
+      expect(cv.toShortString()).to.equal('Obadiah 40-45')
     })
 
     it('fails for multi chapter book', () => {
@@ -163,6 +170,12 @@ describe('chapter-and-verse', () => {
         reason: 'starts with book.start'
       })
       expect(cv.toString()).to.equal('Exodus 7:57')
+      expect(cv.toShortString()).to.equal('Exodus 7:57')
+    })
+
+    it('fails where chapter does not exist', () => {
+      cv = chapterAndVerse('exo 41:57')
+      expect(cv).to.be.null
     })
   })
 
@@ -182,6 +195,7 @@ describe('chapter-and-verse', () => {
         reason: 'starts with book.start'
       })
       expect(cv.toString()).to.equal('Exodus 33:99-111')
+      expect(cv.toShortString()).to.equal('Exodus 33:99-111')
     })
   })
 
