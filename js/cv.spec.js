@@ -132,23 +132,22 @@ describe('chapter-and-verse', () => {
   describe('type book-verses', () => {
 
     it('sets chapter and verses for single chapter book', () => {
-
-      cv = chapterAndVerse('oba 40-45')
+      cv = chapterAndVerse('oba 1-5')
       expect(cv).to.containSubset({
         book: {
           name: 'Obadiah'
         },
         chapter: 1,
-        from: 40,
-        to: 45,
-        range: [40, 41, 42, 43, 44, 45],
+        from: 1,
+        to: 5,
+        range: [1, 2, 3, 4, 5],
         reason: 'starts with book.start'
       })
-      expect(cv.toString()).to.equal('Obadiah 1:40-45')
-      expect(cv.toShortString()).to.equal('Obadiah 40-45')
+      expect(cv.toString()).to.equal('Obadiah 1:1-5')
+      expect(cv.toShortString()).to.equal('Obadiah 1-5')
     })
 
-    it('fails for multi chapter book', () => {
+    it('returns null for multi chapter book', () => {
       cv = chapterAndVerse('exo 40-45')
       expect(cv).to.be.null
     })
