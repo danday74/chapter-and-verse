@@ -1,0 +1,15 @@
+{
+  "book": {
+    "id": "Dan",
+    "name": "Daniel",
+    "testament": "O",
+    "start": "dan",
+    "abbr": ["da", "dn"],
+    "chapters": 12
+  },
+  "reason": "matches book.id",
+  "chapter": 4,
+  "from": 1,
+  "to": 3,
+  "range": [1, 2, 3]
+}

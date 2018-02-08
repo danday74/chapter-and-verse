@@ -213,4 +213,18 @@ describe('chapter-and-verse', () => {
       expect(cv).to.be.null
     })
   })
+
+  describe('example', () => {
+
+    it('example', () => {
+      const chapterAndVerse = require('../index')
+      let cv
+      cv = chapterAndVerse('Dan 4:1-3')
+      expect(cv.toString()).to.equal('Daniel 4:1-3')
+      expect(cv.toShortString()).to.equal('Daniel 4:1-3')
+      cv = chapterAndVerse('ob 1-3')
+      expect(cv.toString()).to.equal('Obadiah 1:1-3')
+      expect(cv.toShortString()).to.equal('Obadiah 1-3')
+    })
+  })
 })
