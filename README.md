@@ -12,7 +12,7 @@
 
 <br>
 
-# Introduction
+## Introduction
 
 Throw a bible reference at `chapter-and-verse` and it returns a detailed JSON object for that reference.
 
@@ -35,7 +35,7 @@ It is particularly useful when dealing with complex bible APIs or raw user input
 
 <br>
 
-# Usage
+## Usage
 
 ```javascript 1.7
 const chapterAndVerse = require('chapter-and-verse')
@@ -78,7 +78,7 @@ cv.toShortString() // returns 'Obadiah 1-3' .. difference because Obadiah only h
 
 <br>
 
-# Author says
+## Author says
 
 The Lord bless you and keep you;
 
