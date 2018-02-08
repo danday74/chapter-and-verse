@@ -14,7 +14,7 @@
 
 # Introduction
 
-Throw a bible reference at `chapter-and-verse` and it will return a detailed JSON object for that reference.
+Throw a bible reference at `chapter-and-verse` and it returns a detailed JSON object for that reference.
 
 `chapter-and-verse` understands all common bible book abbreviations and more.
 
