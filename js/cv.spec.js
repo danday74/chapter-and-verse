@@ -198,17 +198,17 @@ describe('chapter-and-verse', () => {
 
   describe('invalid', () => {
 
-    it('type null fails', () => {
+    it('returns null where no type applies', () => {
       cv = chapterAndVerse('exo 10a')
       expect(cv).to.be.null
     })
 
-    it('non string arg fails', () => {
+    it('returns null where non string arg given', () => {
       cv = chapterAndVerse(9)
       expect(cv).to.be.null
     })
 
-    it('no arg fails', () => {
+    it('returns null where no arg given', () => {
       cv = chapterAndVerse()
       expect(cv).to.be.null
     })
