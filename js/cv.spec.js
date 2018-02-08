@@ -156,7 +156,6 @@ describe('chapter-and-verse', () => {
   describe('type book-chapter-verse', () => {
 
     it('sets chapter and verse', () => {
-
       cv = chapterAndVerse('exo 7:57')
       expect(cv).to.containSubset({
         book: {
@@ -181,7 +180,6 @@ describe('chapter-and-verse', () => {
   describe('type book-chapter-verses', () => {
 
     it('sets chapter and verses', () => {
-
       cv = chapterAndVerse('exo 33:111-99')
       expect(cv).to.containSubset({
         book: {
