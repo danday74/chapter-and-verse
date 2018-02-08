@@ -108,22 +108,22 @@ describe('chapter-and-verse', () => {
       expect(cv.toShortString()).to.equal('Obadiah 176')
     })
 
-    it('fails where chapter is zero', () => {
+    it('returns null where chapter is zero', () => {
       cv = chapterAndVerse('exo 0')
       expect(cv).to.be.null
     })
 
-    it('fails where chapter does not exist', () => {
+    it('returns null where chapter does not exist', () => {
       cv = chapterAndVerse('exo 41')
       expect(cv).to.be.null
     })
 
-    it('fails where verse is zero', () => {
+    it('returns null where verse is zero', () => {
       cv = chapterAndVerse('oba 0')
       expect(cv).to.be.null
     })
 
-    it('fails where verse is greater than 176', () => {
+    it('returns null where verse is greater than 176', () => {
       cv = chapterAndVerse('oba 177')
       expect(cv).to.be.null
     })
