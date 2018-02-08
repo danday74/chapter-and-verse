@@ -148,7 +148,7 @@ describe('chapter-and-verse', () => {
     })
 
     it('returns null for multi chapter book', () => {
-      cv = chapterAndVerse('exo 40-45')
+      cv = chapterAndVerse('exo 5-7')
       expect(cv).to.be.null
     })
   })
