@@ -68,7 +68,7 @@ describe('chapter-and-verse', () => {
       expect(cv.toShortString()).to.equal('Obadiah')
     })
 
-    it('fails', () => {
+    it('starts with returns null where str is too long', () => {
       cv = chapterAndVerse('Exoduss')
       expect(cv).to.be.null
     })
