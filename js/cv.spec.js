@@ -172,7 +172,7 @@ describe('chapter-and-verse', () => {
       expect(cv.toShortString()).to.equal('Exodus 7:57')
     })
 
-    it('fails where chapter does not exist', () => {
+    it('returns null where chapter does not exist', () => {
       cv = chapterAndVerse('exo 41:57')
       expect(cv).to.be.null
     })
