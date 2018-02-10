@@ -94,9 +94,7 @@ This happens when the:
 
 * `verse from` and `verse to` are not in the range 1-176 - see [Psalm 119:176 ESV](https://www.biblegateway.com/passage/?search=Psalm%20119:176&version=ESV "Jesus loves you")
 
-`chapter-and-verse` does **NOT** return `null` if the verse range is invalid for the chapter in question.
-
-This is because the number of verses in a chapter may vary according to translation and thus validating verse numbering becomes a never ending task as new translations are released.
+`chapter-and-verse` does **NOT** return `null` if the verse range is invalid for the chapter in question; being beyond the intended scope.
 
 `chapter-and-verse` is **NOT** intended to recognise apocryphal books.
 
