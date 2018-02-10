@@ -18,7 +18,7 @@ Throw a bible reference at `chapter-and-verse` and it returns a detailed JSON ob
 
 `chapter-and-verse` understands all common bible book abbreviations and more.
 
-It is particularly useful when dealing with complex bible APIs or raw user input.
+It is particularly useful when formulating bible reference based URLs and for dealing with complex bible APIs and raw user input.
 
 `chapter-and-verse` handles all the following reference formats:
 
@@ -117,6 +117,8 @@ Which returns:
 `chapter-and-verse` returns `null` if it cannot resolve the biblical reference.
 
 This happens when the:
+
+* Reference is not in one of the six supported formats above
 
 * Book cannot be determined from the reference given
 
