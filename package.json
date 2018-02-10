@@ -1,6 +1,6 @@
 {
   "name": "chapter-and-verse",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Given a bible reference returns an object with the bible book, chapter, verse and more",
   "author": "danday74",
   "license": "ISC",
@@ -9,7 +9,7 @@
     "test": "./node_modules/.bin/istanbul cover -x \"**/*.spec.js\" ./node_modules/mocha/bin/_mocha -- js",
     "enforcer": "./node_modules/.bin/istanbul check-coverage --statement 100 --branch 100 --function 100 --line 100",
     "build": "npm-run-all test enforcer",
-    "prepush": "npm test"
+    "prepush": "npm run build"
   },
   "dependencies": {
     "lodash": "^4.17.5"
