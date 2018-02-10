@@ -29,6 +29,7 @@ describe('chapter-and-verse', () => {
         }, mergeBook))
       expect(cv.toString()).to.equal('Exodus')
       expect(cv.toShortString()).to.equal('Exodus')
+      expect(cv.getType()).to.equal('book')
     })
 
     it('matches a book.abbr', () => {
@@ -42,6 +43,7 @@ describe('chapter-and-verse', () => {
         }, mergeBook))
       expect(cv.toString()).to.equal('Exodus')
       expect(cv.toShortString()).to.equal('Exodus')
+      expect(cv.getType()).to.equal('book')
     })
 
     it('starts with book.start', () => {
@@ -55,6 +57,7 @@ describe('chapter-and-verse', () => {
         }, mergeBook))
       expect(cv.toString()).to.equal('Exodus')
       expect(cv.toShortString()).to.equal('Exodus')
+      expect(cv.getType()).to.equal('book')
 
       cv = chapterAndVerse('Obadiah')
       expect(cv).to.containSubset(
@@ -66,6 +69,7 @@ describe('chapter-and-verse', () => {
         }, mergeBook))
       expect(cv.toString()).to.equal('Obadiah')
       expect(cv.toShortString()).to.equal('Obadiah')
+      expect(cv.getType()).to.equal('book')
     })
 
     it('starts with returns null where str is too long', () => {
@@ -90,6 +94,7 @@ describe('chapter-and-verse', () => {
       })
       expect(cv.toString()).to.equal('Exodus 40')
       expect(cv.toShortString()).to.equal('Exodus 40')
+      expect(cv.getType()).to.equal('chapter')
     })
 
     it('sets chapter and verse for single chapter book', () => {
@@ -106,6 +111,7 @@ describe('chapter-and-verse', () => {
       })
       expect(cv.toString()).to.equal('Obadiah 1:176')
       expect(cv.toShortString()).to.equal('Obadiah 176')
+      expect(cv.getType()).to.equal('verse')
     })
 
     it('returns null where chapter is zero', () => {
@@ -145,6 +151,7 @@ describe('chapter-and-verse', () => {
       })
       expect(cv.toString()).to.equal('Obadiah 1:1-5')
       expect(cv.toShortString()).to.equal('Obadiah 1-5')
+      expect(cv.getType()).to.equal('verses')
     })
 
     it('returns null for multi chapter book', () => {
@@ -169,6 +176,7 @@ describe('chapter-and-verse', () => {
       })
       expect(cv.toString()).to.equal('Exodus 7:57')
       expect(cv.toShortString()).to.equal('Exodus 7:57')
+      expect(cv.getType()).to.equal('verse')
     })
 
     it('returns null where chapter does not exist', () => {
@@ -193,6 +201,7 @@ describe('chapter-and-verse', () => {
       })
       expect(cv.toString()).to.equal('Exodus 33:99-111')
       expect(cv.toShortString()).to.equal('Exodus 33:99-111')
+      expect(cv.getType()).to.equal('verses')
     })
   })
 
@@ -219,12 +228,16 @@ describe('chapter-and-verse', () => {
     it('example', () => {
       const chapterAndVerse = require('../index')
       let cv
+
       cv = chapterAndVerse('Dan 4:1-3')
       expect(cv.toString()).to.equal('Daniel 4:1-3')
       expect(cv.toShortString()).to.equal('Daniel 4:1-3')
+      expect(cv.getType()).to.equal('verses')
+
       cv = chapterAndVerse('ob 1-3')
       expect(cv.toString()).to.equal('Obadiah 1:1-3')
       expect(cv.toShortString()).to.equal('Obadiah 1-3')
+      expect(cv.getType()).to.equal('verses')
     })
   })
 })

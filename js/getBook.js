@@ -31,6 +31,12 @@ const CV = function(book, reason) {
     }
     return str
   }
+  this.getType = () => {
+    if (this.chapter == null) return 'book'
+    if (this.range == null) return 'chapter'
+    if (this.range.length === 1) return 'verse'
+    return 'verses'
+  }
 }
 
 const getBook = strBook => {
