@@ -9,7 +9,7 @@ let cv
 
 describe('chapter-and-verse', () => {
 
-  describe('type book', () => {
+  describe('format book', () => {
 
     const mergeBook = {
       chapter: null,
@@ -74,7 +74,7 @@ describe('chapter-and-verse', () => {
     })
   })
 
-  describe('type book-chapter-or-book-verse', () => {
+  describe('format book-chapter-or-book-verse', () => {
 
     it('sets chapter for multi chapter book', () => {
       cv = chapterAndVerse('exo 40')
@@ -129,7 +129,7 @@ describe('chapter-and-verse', () => {
     })
   })
 
-  describe('type book-verses', () => {
+  describe('format book-verses', () => {
 
     it('sets chapter and verses for single chapter book', () => {
       cv = chapterAndVerse('oba 1-5')
@@ -153,7 +153,7 @@ describe('chapter-and-verse', () => {
     })
   })
 
-  describe('type book-chapter-verse', () => {
+  describe('format book-chapter-verse', () => {
 
     it('sets chapter and verse', () => {
       cv = chapterAndVerse('exo 7:57')
@@ -177,7 +177,7 @@ describe('chapter-and-verse', () => {
     })
   })
 
-  describe('type book-chapter-verses', () => {
+  describe('format book-chapter-verses', () => {
 
     it('sets chapter and verses', () => {
       cv = chapterAndVerse('exo 33:111-99')
@@ -198,7 +198,7 @@ describe('chapter-and-verse', () => {
 
   describe('invalid', () => {
 
-    it('returns null where no type applies', () => {
+    it('returns null where no format applies', () => {
       cv = chapterAndVerse('exo 10a')
       expect(cv).to.be.null
     })

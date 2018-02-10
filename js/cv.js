@@ -3,7 +3,7 @@ const getChapter = require('./getChapter')
 const getVerses = require('./getVerses')
 
 const BASE_REGEX = /^\d?[a-z]+/
-const TYPES = [
+const FORMATS = [
   {
     desc: 'book',
     regex: /$/
@@ -33,21 +33,21 @@ const getCv = (str = '') => {
   str = str.toLowerCase()
   str = str.replace(/ /g, '')
 
-  let type = null
-  TYPES.forEach(t => {
-    const catRegex = new RegExp(BASE_REGEX.source + t.regex.source)
-    if (catRegex.test(str)) type = t
+  let format = null
+  FORMATS.forEach(f => {
+    const catRegex = new RegExp(BASE_REGEX.source + f.regex.source)
+    if (catRegex.test(str)) format = f
   })
-  if (type == null) return null
+  if (format == null) return null
 
-  const strBook = str.replace(type.regex, '')
+  const strBook = str.replace(format.regex, '')
   let cv = getBook(strBook)
   if (cv == null) return null
 
   let strChapter, strVerses
-  const temp = str.match(type.regex)[0]
+  const temp = str.match(format.regex)[0]
 
-  switch (type.desc) {
+  switch (format.desc) {
 
     case 'book': {
       return cv
