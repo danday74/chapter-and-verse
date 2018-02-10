@@ -7,36 +7,39 @@ const CV = function(book, reason) {
   this.from = null
   this.to = null
   this.range = null
-  this.toString = () => {
-    let str = this.book.name
-    if (this.chapter) {
-      str += ` ${this.chapter}`
-      if (this.from) {
-        str += `:${this.from}`
-        if (this.from < this.to) {
-          str += `-${this.to}`
-        }
-      }
-    }
-    return str
-  }
-  this.toShortString = () => {
-    if (this.book.chapters > 1) return this.toString()
-    let str = this.book.name
+}
+
+CV.prototype.toString = function() {
+  let str = this.book.name
+  if (this.chapter) {
+    str += ` ${this.chapter}`
     if (this.from) {
-      str += ` ${this.from}`
+      str += `:${this.from}`
       if (this.from < this.to) {
         str += `-${this.to}`
       }
     }
-    return str
   }
-  this.getType = () => {
-    if (this.chapter == null) return 'book'
-    if (this.range == null) return 'chapter'
-    if (this.range.length === 1) return 'verse'
-    return 'verses'
+  return str
+}
+
+CV.prototype.toShortString = function() {
+  if (this.book.chapters > 1) return this.toString()
+  let str = this.book.name
+  if (this.from) {
+    str += ` ${this.from}`
+    if (this.from < this.to) {
+      str += `-${this.to}`
+    }
   }
+  return str
+}
+
+CV.prototype.getType = function() {
+  if (this.chapter == null) return 'book'
+  if (this.range == null) return 'chapter'
+  if (this.range.length === 1) return 'verse'
+  return 'verses'
 }
 
 const getBook = strBook => {
