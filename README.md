@@ -31,6 +31,8 @@ It is particularly useful when dealing with complex bible APIs or raw user input
 | book chapter:verse  	| Genesis 5:1   	|                           	|
 | book chapter:verses 	| Genesis 5:1-4 	|                           	|
 
+`chapter-and-verse` is written by a professional developer, has 100% unit test coverage and is ready for production use.
+
 
 
 <br>
@@ -73,6 +75,8 @@ cv = chapterAndVerse('ob 1-3')
 cv.toString() // returns 'Obadiah 1:1-3'
 cv.toShortString() // returns 'Obadiah 1-3' .. difference because Obadiah only has a single chapter
 ```
+
+Finally `cv.getType()` returns one of 'book', 'chapter', 'verses' or 'verse'
 
 
 
