@@ -18,7 +18,7 @@ Throw a bible reference at `chapter-and-verse` and it returns a detailed JSON ob
 
 `chapter-and-verse` understands all common bible book abbreviations and more.
 
-It is particularly useful when formulating bible reference based URLs and for dealing with complex bible APIs and raw user input.
+It is particularly useful when formulating bible reference based URLs and for dealing with complex bible APIs / raw user input.
 
 `chapter-and-verse` handles all the following reference formats:
 
