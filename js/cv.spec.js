@@ -205,6 +205,33 @@ describe('chapter-and-verse', () => {
     })
   })
 
+  describe('toSimpleObject', () => {
+
+    it('toSimpleObject', () => {
+      cv = chapterAndVerse('exo 33:7-12')
+      expect(cv).to.containSubset({
+        book: {id: 'Exod', name: 'Exodus', testament: 'O', start: 'exo', abbr: ['ex'], chapters: 40},
+        reason: 'starts with book.start',
+        chapter: 33,
+        from: 7,
+        to: 12,
+        range: [7, 8, 9, 10, 11, 12]
+      })
+      expect(cv.toSimpleObject()).to.eql({
+        type: 'verses',
+        asString: 'Exodus 33:7-12',
+        asShortString: 'Exodus 33:7-12',
+        bookId: 'Exod',
+        bookName: 'Exodus',
+        testament: 'O',
+        chapter: 33,
+        from: 7,
+        to: 12,
+        range: [7, 8, 9, 10, 11, 12]
+      })
+    })
+  })
+
   describe('invalid', () => {
 
     it('returns null where no format applies', () => {

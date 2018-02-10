@@ -64,7 +64,13 @@ And `cv` now looks like:
 }
 ```
 
-You can also use `cv.toString()` and `cv.toShortString()` as follows:
+
+
+<br>
+
+## Methods
+
+Use `cv.toString()` and `cv.toShortString()` as follows:
 
 ```javascript 1.7
 cv = chapterAndVerse('Dan 4:1-3')
@@ -76,7 +82,31 @@ cv.toString() // returns 'Obadiah 1:1-3'
 cv.toShortString() // returns 'Obadiah 1-3' .. difference because Obadiah only has a single chapter
 ```
 
-Finally `cv.getType()` returns one of 'book', 'chapter', 'verses' or 'verse'
+`cv.getType()` returns one of 'book', 'chapter', 'verses' or 'verse'
+
+Finally `cv.toSimpleObject()` provides access to a flat object containing only essential data:
+
+```javascript 1.7
+cv = chapterAndVerse('exo 33:7-12')
+cv.toSimpleObject()
+```
+
+Which returns:
+
+```json
+{
+  "type": "verses",
+  "asString": "Exodus 33:7-12",
+  "asShortString": "Exodus 33:7-12",
+  "bookId": "Exod",
+  "bookName": "Exodus",
+  "testament": "O",
+  "chapter": 33,
+  "from": 7,
+  "to": 12,
+  "range": [7, 8, 9, 10, 11, 12]
+}
+```
 
 
 

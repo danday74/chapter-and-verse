@@ -42,6 +42,21 @@ CV.prototype.getType = function() {
   return 'verses'
 }
 
+CV.prototype.toSimpleObject = function() {
+  return {
+    type: this.getType(),
+    asString: this.toString(),
+    asShortString: this.toShortString(),
+    bookId: this.book.id,
+    bookName: this.book.name,
+    testament: this.book.testament,
+    chapter: this.chapter,
+    from: this.from,
+    to: this.to,
+    range: this.range
+  }
+}
+
 const getBook = strBook => {
 
   for (let book of osis) {
