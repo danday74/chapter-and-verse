@@ -82,6 +82,28 @@ Finally `cv.getType()` returns one of 'book', 'chapter', 'verses' or 'verse'
 
 <br>
 
+## Validation
+
+`chapter-and-verse` returns `null` if it cannot resolve the biblical reference.
+
+This happens when the:
+
+* Book cannot be determined from the reference given
+
+* Chapter number is invalid for the book in question
+
+* `verse from` and `verse to` are not in the range 1-176 - see [Psalm 119:176 ESV](https://www.biblegateway.com/passage/?search=Psalm%20119:176&version=ESV "Jesus loves you")
+
+`chapter-and-verse` does **NOT** return `null` if the verse range is invalid for the chapter in question.
+
+This is because the number of verses in a chapter may vary according to translation and thus validating verse numbering becomes a never ending task as new translations are released.
+
+`chapter-and-verse` is **NOT** intended to recognise apocryphal books.
+
+
+
+<br>
+
 ## Author says
 
 The Lord bless you and keep you;
