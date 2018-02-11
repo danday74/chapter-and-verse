@@ -12,6 +12,14 @@
   },
   "plugins": [],
   "rules": {
+    "arrow-parens": [
+      2,
+      "as-needed"
+    ],
+    "comma-dangle": [
+      2,
+      "never"
+    ],
     "no-console": 0,
     "quotes": [
       2,
@@ -20,10 +28,6 @@
     "semi": [
       2,
       "never"
-    ],
-    "arrow-parens": [
-      2,
-      "as-needed"
     ]
   },
   "globals": {}
