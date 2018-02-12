@@ -35,8 +35,8 @@ osis.forEach(osis => {
 if (totalVerseCount === 31103) {
   console.log(chalk.green('CHECKSUM IS CORRECT'))
 } else {
-  console.error(chalk.red('CHECKSUM IS WRONG'))
   exitCode = 1
+  console.error(chalk.red('CHECKSUM IS WRONG'))
 }
 
 process.exit(exitCode)
