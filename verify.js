@@ -31,7 +31,7 @@ osis.forEach(osis => {
   }
 })
 
-if (totalVerseCount === 31102) {
+if (totalVerseCount === 31103) {
   console.log(chalk.green('CHECKSUM IS CORRECT'))
 } else {
   console.error(chalk.red('CHECKSUM IS WRONG'))

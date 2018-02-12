@@ -62,7 +62,8 @@
   {"id": "2Pet", "verseCount": 61, "chapters": [21, 22, 18]},
   {"id": "1John", "verseCount": 105, "chapters": [10, 29, 24, 21, 21]},
   {"id": "2John", "verseCount": 13, "chapters": [13]},
-  {"id": "3John", "verseCount": 14, "chapters": [14]},
+  {"id": "3John", "verseCount": 15, "chapters": [15]},
   {"id": "Jude", "verseCount": 25, "chapters": [25]},
-  {"id": "Rev", "verseCount": 404, "chapters": [20, 29, 22, 11, 14, 17, 17, 13, 21, 11, 19, 17, 18, 20, 8, 21, 18, 24, 21, 15, 27, 21]}
+  {"id": "Rev", "verseCount": 404, "chapters": [20, 29, 22, 11, 14, 17, 17, 13, 21, 11, 19, 17, 18, 20, 8, 21, 18, 24, 21, 15, 27, 21]},
+  {"comment": "3John has 14 verses in KJV but 15 verses in ESV"}
 ]
