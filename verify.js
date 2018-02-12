@@ -1,7 +1,7 @@
 const _ = require('lodash')
 const chalk = require('chalk')
 const osis = require('./js/osis')
-const books = require('./js/books1')
+const books = require('./js/books')
 
 let exitCode = 0
 let totalVerseCount = 0
