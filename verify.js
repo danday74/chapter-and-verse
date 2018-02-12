@@ -15,6 +15,7 @@ osis.forEach(osis => {
   const verseCount = _.sum(book.chapters)
 
   if (chapterCount === 0) {
+    exitCode = 1
     console.warn(chalk.yellow(id + '\t SKIPPING'))
   } else {
 
