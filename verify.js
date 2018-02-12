@@ -1,7 +1,7 @@
 const _ = require('lodash')
 const chalk = require('chalk')
-const osis = require('./osis')
-const books = require('./books1')
+const osis = require('./js/osis')
+const books = require('./js/books1')
 
 let exitCode = 0
 
