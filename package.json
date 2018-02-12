@@ -6,11 +6,12 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/istanbul cover -x \"**/*.spec.js\" ./node_modules/mocha/bin/_mocha -- js",
+    "test": "npm-run-all verify mocha",
     "enforcer": "./node_modules/.bin/istanbul check-coverage --statement 100 --branch 100 --function 100 --line 100",
-    "build": "npm-run-all test enforcer verify",
+    "build": "npm-run-all test enforcer",
     "prepush": "npm run build",
-    "verify": "node verify"
+    "verify": "node verify",
+    "mocha": "./node_modules/.bin/istanbul cover -x \"**/*.spec.js\" ./node_modules/mocha/bin/_mocha -- js"
   },
   "dependencies": {
     "lodash": "^4.17.5"
