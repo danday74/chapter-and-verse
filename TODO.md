@@ -18,6 +18,14 @@
 
 * Need to consider empty array when coding - Add this to README of next projects TODO
 
+3 John 1:15
+KJV - empty array
+ESV - Peace be to you. The friends greet you. Greet the friends, every one of them.
+
+Matthew 12:47
+KJV - Then one said unto him, Behold, thy mother and thy brethren stand without, desiring to speak with thee.
+ESV - empty array
+
 Good resource = https://searchcode.com/file/15707076/data.py
 
 Good resource = https://en.wikipedia.org/wiki/List_of_New_Testament_verses_not_included_in_modern_English_translations
