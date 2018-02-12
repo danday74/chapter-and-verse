@@ -15,3 +15,7 @@
 * Check number of verses in ESV
 
 * Remove range since a verse in range might not exist
+
+
+
+Good resource = https://searchcode.com/file/15707076/data.py
