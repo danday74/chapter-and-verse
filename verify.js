@@ -12,16 +12,21 @@ osis.forEach(osis => {
   const book = _.find(books, {id})
   totalVerseCount += book.verseCount
   const chapterCount = book.chapters.length
+  const verseCount = _.sum(book.chapters)
 
   if (chapterCount === 0) {
-    console.warn(chalk.yellow('skipping ' + id))
+    console.warn(chalk.yellow(id + '\t SKIPPING'))
   } else {
 
-    if (chapterCount === osis.chapters) {
-      console.log(chalk.green('chapter count is correct for ' + id))
+    let failures = ''
+    if (chapterCount !== osis.chapters) failures += ' - chapter count'
+    if (verseCount !== book.verseCount) failures += ' - verse count'
+
+    if (failures.length === 0) {
+      console.log(chalk.green(id + '\t PASSED'))
     } else {
-      console.error(chalk.red('chapter count is wrong for ' + id))
       exitCode = 1
+      console.error(chalk.red(id + '\t FAILED FOR' + failures))
     }
   }
 })
