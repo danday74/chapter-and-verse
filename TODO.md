@@ -13,3 +13,5 @@
 * Update README and explain about omitted verses across translations
 
 * Check number of verses in ESV
+
+* Remove range since a verse in range might not exist
