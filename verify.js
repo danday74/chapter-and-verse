@@ -23,7 +23,6 @@ osis.forEach(osis => {
       console.error(chalk.red('chapter count is wrong for ' + id))
       exitCode = 1
     }
-
   }
 })
 
