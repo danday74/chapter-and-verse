@@ -16,6 +16,8 @@
 
 * Remove range since a verse in range might not exist
 
+* Add book order? not always in same order
+
 * Need to consider empty array when coding - Add this to README of next projects TODO
 
 3 John 1:15
