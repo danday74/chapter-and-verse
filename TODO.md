@@ -1,3 +1,6 @@
+TODO
+----
+
 * Enforce bible verses
 
 * next and previous? prob not - if so if book, next book, if chapter, next chapter, if verse, next verse - what about verses?
@@ -12,10 +15,6 @@
 
 * Update README and explain about omitted verses across translations
 
-* Check number of verses in ESV
-
-* Add book order? not always in same order
-
 * Need to consider empty array when coding - Add this to README of next projects TODO
 
 3 John 1:15
@@ -29,3 +28,10 @@ ESV - empty array
 Good resource = https://searchcode.com/file/15707076/data.py
 
 Good resource = https://en.wikipedia.org/wiki/List_of_New_Testament_verses_not_included_in_modern_English_translations
+
+
+
+PROB WON'T DO
+-------------
+
+* Add book order? not always in same order
