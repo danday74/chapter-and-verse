@@ -6,7 +6,6 @@ const CV = function(book, reason) {
   this.chapter = null
   this.from = null
   this.to = null
-  this.range = null
 }
 
 CV.prototype.toString = function() {
@@ -36,9 +35,9 @@ CV.prototype.toShortString = function() {
 }
 
 CV.prototype.getType = function() {
-  if (this.chapter == null) return 'book'
-  if (this.range == null) return 'chapter'
-  if (this.range.length === 1) return 'verse'
+  if (!this.chapter) return 'book'
+  if (!this.from) return 'chapter'
+  if (this.from === this.to) return 'verse'
   return 'verses'
 }
 
@@ -52,8 +51,7 @@ CV.prototype.toSimpleObject = function() {
     testament: this.book.testament,
     chapter: this.chapter,
     from: this.from,
-    to: this.to,
-    range: this.range
+    to: this.to
   }
 }
 

@@ -10,6 +10,5 @@
   "reason": "matches book.id",
   "chapter": 4,
   "from": 1,
-  "to": 3,
-  "range": [1, 2, 3]
+  "to": 3
 }

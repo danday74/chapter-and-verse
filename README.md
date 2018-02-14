@@ -59,8 +59,7 @@ And `cv` now looks like:
   "reason": "matches book.id",
   "chapter": 4,
   "from": 1,
-  "to": 3,
-  "range": [1, 2, 3]
+  "to": 3
 }
 ```
 
@@ -103,8 +102,7 @@ Which returns:
   "testament": "O",
   "chapter": 33,
   "from": 7,
-  "to": 12,
-  "range": [7, 8, 9, 10, 11, 12]
+  "to": 12
 }
 ```
 

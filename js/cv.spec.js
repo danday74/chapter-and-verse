@@ -14,8 +14,7 @@ describe('chapter-and-verse', () => {
     const mergeBook = {
       chapter: null,
       from: null,
-      to: null,
-      range: null
+      to: null
     }
 
     it('matches book.id', () => {
@@ -89,7 +88,6 @@ describe('chapter-and-verse', () => {
         chapter: 40,
         from: null,
         to: null,
-        range: null,
         reason: 'starts with book.start'
       })
       expect(cv.toString()).to.equal('Exodus 40')
@@ -106,7 +104,6 @@ describe('chapter-and-verse', () => {
         chapter: 1,
         from: 176,
         to: 176,
-        range: [176],
         reason: 'starts with book.start'
       })
       expect(cv.toString()).to.equal('Obadiah 1:176')
@@ -146,7 +143,6 @@ describe('chapter-and-verse', () => {
         chapter: 1,
         from: 1,
         to: 5,
-        range: [1, 2, 3, 4, 5],
         reason: 'starts with book.start'
       })
       expect(cv.toString()).to.equal('Obadiah 1:1-5')
@@ -171,7 +167,6 @@ describe('chapter-and-verse', () => {
         chapter: 7,
         from: 57,
         to: 57,
-        range: [57],
         reason: 'starts with book.start'
       })
       expect(cv.toString()).to.equal('Exodus 7:57')
@@ -196,7 +191,6 @@ describe('chapter-and-verse', () => {
         chapter: 33,
         from: 99,
         to: 111,
-        range: [99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111],
         reason: 'starts with book.start'
       })
       expect(cv.toString()).to.equal('Exodus 33:99-111')
@@ -214,8 +208,7 @@ describe('chapter-and-verse', () => {
         reason: 'starts with book.start',
         chapter: 33,
         from: 7,
-        to: 12,
-        range: [7, 8, 9, 10, 11, 12]
+        to: 12
       })
       expect(cv.toSimpleObject()).to.eql({
         type: 'verses',
@@ -226,8 +219,7 @@ describe('chapter-and-verse', () => {
         testament: 'O',
         chapter: 33,
         from: 7,
-        to: 12,
-        range: [7, 8, 9, 10, 11, 12]
+        to: 12
       })
     })
   })
