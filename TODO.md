@@ -25,13 +25,20 @@ Matthew 12:47
 KJV - Then one said unto him, Behold, thy mother and thy brethren stand without, desiring to speak with thee.
 ESV - empty array
 
-Good resource = https://searchcode.com/file/15707076/data.py
-
-Good resource = https://en.wikipedia.org/wiki/List_of_New_Testament_verses_not_included_in_modern_English_translations
-
 
 
 PROB WON'T DO
 -------------
 
 * Add book order? not always in same order
+
+
+
+NOTES
+-----
+
+Good resource = https://searchcode.com/file/15707076/data.py
+
+Good resource = https://en.wikipedia.org/wiki/List_of_New_Testament_verses_not_included_in_modern_English_translations
+
+
