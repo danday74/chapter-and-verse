@@ -15,7 +15,12 @@ TODO
 
 * Update README and explain about omitted verses across translations
 
-* Need to consider empty array when coding - Add this to README of next projects TODO
+
+
+TODO FOR OTHER PROJECT
+----------------------
+
+* Need to consider empty array when coding - Add this to README of other projects TODO
 
 3 John 1:15
 KJV - empty array
