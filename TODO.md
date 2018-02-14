@@ -3,13 +3,11 @@ TODO
 
 * Enforce bible verses
 
+* Add verses for chapter to cv.book
+
+* Respond with success boolean property and reason for failure?
+
 * next and previous? prob not - if so if book, next book, if chapter, next chapter, if verse, next verse - what about verses?
-
-* Respond with success boolean property
-
-* Respond with reason for failure
-
-* Add verses for chapter to cv?
 
 * Unit tests
 
