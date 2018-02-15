@@ -1,7 +1,12 @@
+const _ = require('lodash')
+const books = require('./books')
 const osis = require('./osis')
 
 const CV = function(book, reason) {
   this.book = book
+  const vpcBook = _.find(books, {id: book.id})
+  this.book.versesPerChapter = vpcBook.chapters
+
   this.reason = reason
   this.chapter = null
   this.from = null

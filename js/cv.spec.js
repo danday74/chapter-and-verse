@@ -96,18 +96,18 @@ describe('chapter-and-verse', () => {
     })
 
     it('sets chapter and verse for single chapter book', () => {
-      cv = chapterAndVerse('oba 176')
+      cv = chapterAndVerse('oba 21')
       expect(cv).to.containSubset({
         book: {
           name: 'Obadiah'
         },
         chapter: 1,
-        from: 176,
-        to: 176,
+        from: 21,
+        to: 21,
         reason: 'starts with book.start'
       })
-      expect(cv.toString()).to.equal('Obadiah 1:176')
-      expect(cv.toShortString()).to.equal('Obadiah 176')
+      expect(cv.toString()).to.equal('Obadiah 1:21')
+      expect(cv.toShortString()).to.equal('Obadiah 21')
       expect(cv.getType()).to.equal('verse')
     })
 
@@ -126,8 +126,8 @@ describe('chapter-and-verse', () => {
       expect(cv).to.be.null
     })
 
-    it('returns null where verse is greater than 176', () => {
-      cv = chapterAndVerse('oba 177')
+    it('returns null where verse does not exist', () => {
+      cv = chapterAndVerse('oba 22')
       expect(cv).to.be.null
     })
   })
@@ -159,18 +159,18 @@ describe('chapter-and-verse', () => {
   describe('format book-chapter-verse', () => {
 
     it('sets chapter and verse', () => {
-      cv = chapterAndVerse('exo 7:57')
+      cv = chapterAndVerse('exo 7:25')
       expect(cv).to.containSubset({
         book: {
           name: 'Exodus'
         },
         chapter: 7,
-        from: 57,
-        to: 57,
+        from: 25,
+        to: 25,
         reason: 'starts with book.start'
       })
-      expect(cv.toString()).to.equal('Exodus 7:57')
-      expect(cv.toShortString()).to.equal('Exodus 7:57')
+      expect(cv.toString()).to.equal('Exodus 7:25')
+      expect(cv.toShortString()).to.equal('Exodus 7:25')
       expect(cv.getType()).to.equal('verse')
     })
 
@@ -183,18 +183,18 @@ describe('chapter-and-verse', () => {
   describe('format book-chapter-verses', () => {
 
     it('sets chapter and verses', () => {
-      cv = chapterAndVerse('exo 33:111-99')
+      cv = chapterAndVerse('exo 33:23-20')
       expect(cv).to.containSubset({
         book: {
           name: 'Exodus'
         },
         chapter: 33,
-        from: 99,
-        to: 111,
+        from: 20,
+        to: 23,
         reason: 'starts with book.start'
       })
-      expect(cv.toString()).to.equal('Exodus 33:99-111')
-      expect(cv.toShortString()).to.equal('Exodus 33:99-111')
+      expect(cv.toString()).to.equal('Exodus 33:20-23')
+      expect(cv.toShortString()).to.equal('Exodus 33:20-23')
       expect(cv.getType()).to.equal('verses')
     })
   })

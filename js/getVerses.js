@@ -8,7 +8,8 @@ const getVerses = (cv, strVerses) => {
     to = temp
   }
   if (from === 0) return null
-  if (to > 176) return null // psalm 119:176
+  const versesInChapter = cv.book.versesPerChapter[cv.chapter - 1]
+  if (to > versesInChapter) return null
   cv.from = from
   cv.to = to
   return cv
