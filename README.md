@@ -14,11 +14,21 @@
 
 ## Introduction
 
-Throw a bible reference at `chapter-and-verse` and it returns a detailed JSON object for that reference.
+Throw a bible reference at `chapter-and-verse` and, if the reference is valid, it returns a detailed JSON object for that reference.
 
-`chapter-and-verse` understands all common bible book abbreviations and more.
+If invalid, it returns a JSON object with the reason for failure.
 
-It is particularly useful when formulating bible reference based URLs and for dealing with complex bible APIs / raw user input.
+`chapter-and-verse` understands all common bible book abbreviations and has its own built-in book identification algorithm.
+
+It is particularly useful when formulating bible reference based URLs, for dealing with complex bible APIs / raw user input and, of course, for validation.
+
+`chapter-and-verse` is written by a professional developer, has 100% unit test coverage and is ready for production use.
+
+
+
+<br>
+
+## Supported reference formats
 
 `chapter-and-verse` handles all the following reference formats:
 
@@ -30,8 +40,6 @@ It is particularly useful when formulating bible reference based URLs and for de
 | book verses         	| Obadiah 3-5   	| single chapter books only 	|
 | book chapter:verse  	| Genesis 5:1   	|                           	|
 | book chapter:verses 	| Genesis 5:1-4 	|                           	|
-
-`chapter-and-verse` is written by a professional developer, has 100% unit test coverage and is ready for production use.
 
 
 
@@ -54,8 +62,10 @@ And `cv` now looks like:
     "testament": "O",
     "start": "dan",
     "abbr": ["da", "dn"],
-    "chapters": 12
+    "chapters": 12,
+    "versesPerChapter": [21, 49, 30, 37, 31, 28, 28, 27, 27, 21, 45, 13]
   },
+  "success": true,
   "reason": "matches book.id",
   "chapter": 4,
   "from": 1,
@@ -63,11 +73,28 @@ And `cv` now looks like:
 }
 ```
 
+To validate a reference:
+
+```javascript 1.7
+const chapterAndVerse = require('chapter-and-verse')
+let cv = chapterAndVerse('Dan 4:1-3')
+if (cv.success === true) {
+  // Put your VALID reference code here
+}
+if (cv.success === false) {
+  // Put your INVALID reference code here
+}
+```
+
+For detailed information on validation see the [Validation](#validation) section below.
+
 
 
 <br>
 
 ## Methods
+
+For a **valid reference** a number of methods are available.
 
 Use `cv.toString()` and `cv.toShortString()` as follows:
 
@@ -95,14 +122,14 @@ Which returns:
 ```json
 {
   "type": "verses",
-  "asString": "Exodus 33:7-12",
-  "asShortString": "Exodus 33:7-12",
-  "bookId": "Exod",
-  "bookName": "Exodus",
+  "asString": "Daniel 4:1-3",
+  "asShortString": "Daniel 4:1-3",
+  "bookId": "Dan",
+  "bookName": "Daniel",
   "testament": "O",
-  "chapter": 33,
-  "from": 7,
-  "to": 12
+  "chapter": 4,
+  "from": 1,
+  "to": 3
 }
 ```
 
@@ -112,21 +139,46 @@ Which returns:
 
 ## Validation
 
-`chapter-and-verse` returns `null` if it cannot resolve the biblical reference.
+`chapter-and-verse` returns a failure object if it cannot resolve the biblical reference:
+
+```json
+{
+  "success": false,
+  "reason": "book does not exist"
+}
+```
 
 This happens when the:
 
-* Reference is not in one of the six supported formats above
+* Book does not exist / cannot be identified
 
-* Book cannot be determined from the reference given
+* Chapter does not exist
 
-* Chapter number is invalid for the book in question
+* Verse does not exist - see [translation complexities](#translation-complexities)
 
-* `verse from` and `verse to` are not in the range 1-176 - see [Psalm 119:176 ESV](https://www.biblegateway.com/passage/?search=Psalm%20119:176&version=ESV "Jesus loves you")
+* "book verses" reference format - see [supported reference formats](#supported-reference-formats) - is used in conjunction with a multi chapter book
 
-`chapter-and-verse` does **NOT** return `null` if the verse range is invalid for the chapter in question; being beyond the intended scope.
+* reference format is unrecognised - see [supported reference formats](#supported-reference-formats)
+
+* reference is not a string
 
 `chapter-and-verse` is **NOT** intended to recognise apocryphal books.
+
+
+
+<br>
+
+## Translation complexities
+
+Certain verses only exist in certain translation. Most notably:
+
+* KJV - 3 John 15 does not exist, it has been merged with 3 John 14
+
+* ESV and other modern English translation - Certain New Testament verses, which exist in the KJV, have been removed
+
+`chapter-and-verse` is not aware of translation specifics and assumes that all verses exist.
+
+For an in-depth discussion on missing verses see [missing verses](https://en.wikipedia.org/wiki/List_of_New_Testament_verses_not_included_in_modern_English_translations)
 
 
 

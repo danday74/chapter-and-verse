@@ -5,8 +5,10 @@
     "testament": "O",
     "start": "dan",
     "abbr": ["da", "dn"],
-    "chapters": 12
+    "chapters": 12,
+    "versesPerChapter": [21, 49, 30, 37, 31, 28, 28, 27, 27, 21, 45, 13]
   },
+  "success": true,
   "reason": "matches book.id",
   "chapter": 4,
   "from": 1,
