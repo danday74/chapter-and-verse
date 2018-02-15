@@ -6,7 +6,7 @@
 [![dependencies](https://david-dm.org/danday74/chapter-and-verse/status.svg)](https://david-dm.org/danday74/chapter-and-verse)
 [![downloads](https://img.shields.io/npm/dm/chapter-and-verse.svg)](https://www.npmjs.com/package/chapter-and-verse)
 
-**Given a bible reference returns an object with the bible book, chapter, verse and more**
+**Given a bible reference, validates it and returns an object with book, chapter, verse and more**
 
 
 
