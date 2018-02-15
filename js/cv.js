@@ -1,3 +1,4 @@
+const errors = require('./errors')
 const getBook = require('./getBook')
 const getChapter = require('./getChapter')
 const getVerses = require('./getVerses')
@@ -28,7 +29,7 @@ const FORMATS = [
 
 const getCv = (str = '') => {
 
-  if (typeof str !== 'string') return null
+  if (typeof str !== 'string') return errors.type
 
   str = str.toLowerCase()
   str = str.replace(/ /g, '')
@@ -38,11 +39,11 @@ const getCv = (str = '') => {
     const catRegex = new RegExp(BASE_REGEX.source + f.regex.source)
     if (catRegex.test(str)) format = f
   })
-  if (format == null) return null
+  if (format == null) return errors.format
 
   const strBook = str.replace(format.regex, '')
   let cv = getBook(strBook)
-  if (cv == null) return null
+  if (!cv.success) return cv
 
   let strChapter, strVerses
   const temp = str.match(format.regex)[0]
@@ -71,7 +72,7 @@ const getCv = (str = '') => {
         strVerses = temp
         cv = getVerses(cv, strVerses)
       } else {
-        return null
+        return errors.bookVersesFormat
       }
       return cv
     }
@@ -82,8 +83,8 @@ const getCv = (str = '') => {
       strChapter = parts[0]
       strVerses = parts[1]
       cv = getChapter(cv, strChapter)
-      if (cv == null) {
-        return null
+      if (!cv.success) {
+        return cv
       } else {
         cv = getVerses(cv, strVerses)
       }

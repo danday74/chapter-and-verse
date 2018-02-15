@@ -1,3 +1,5 @@
+const errors = require('./errors')
+
 const getVerses = (cv, strVerses) => {
   const parts = strVerses.split('-')
   let from = parseInt(parts[0])
@@ -7,9 +9,8 @@ const getVerses = (cv, strVerses) => {
     from = to
     to = temp
   }
-  if (from === 0) return null
   const versesInChapter = cv.book.versesPerChapter[cv.chapter - 1]
-  if (to > versesInChapter) return null
+  if (from === 0 || to > versesInChapter) return errors.verse
   cv.from = from
   cv.to = to
   return cv

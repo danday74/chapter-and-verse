@@ -4,6 +4,7 @@ chai.use(chaiSubset)
 const expect = chai.expect
 const _ = require('lodash')
 const chapterAndVerse = require('./cv')
+const errors = require('./errors')
 
 let cv
 
@@ -24,6 +25,7 @@ describe('chapter-and-verse', () => {
           book: {
             name: 'Exodus'
           },
+          success: true,
           reason: 'matches book.id'
         }, mergeBook))
       expect(cv.toString()).to.equal('Exodus')
@@ -38,6 +40,7 @@ describe('chapter-and-verse', () => {
           book: {
             name: 'Exodus'
           },
+          success: true,
           reason: 'matches a book.abbr'
         }, mergeBook))
       expect(cv.toString()).to.equal('Exodus')
@@ -52,6 +55,7 @@ describe('chapter-and-verse', () => {
           book: {
             name: 'Exodus'
           },
+          success: true,
           reason: 'starts with book.start'
         }, mergeBook))
       expect(cv.toString()).to.equal('Exodus')
@@ -64,6 +68,7 @@ describe('chapter-and-verse', () => {
           book: {
             name: 'Obadiah'
           },
+          success: true,
           reason: 'starts with book.start'
         }, mergeBook))
       expect(cv.toString()).to.equal('Obadiah')
@@ -71,9 +76,9 @@ describe('chapter-and-verse', () => {
       expect(cv.getType()).to.equal('book')
     })
 
-    it('starts with returns null where str is too long', () => {
+    it('starts with returns failure where str is too long', () => {
       cv = chapterAndVerse('Exoduss')
-      expect(cv).to.be.null
+      expect(cv).to.eql(errors.book)
     })
   })
 
@@ -85,10 +90,11 @@ describe('chapter-and-verse', () => {
         book: {
           name: 'Exodus'
         },
+        success: true,
+        reason: 'starts with book.start',
         chapter: 40,
         from: null,
-        to: null,
-        reason: 'starts with book.start'
+        to: null
       })
       expect(cv.toString()).to.equal('Exodus 40')
       expect(cv.toShortString()).to.equal('Exodus 40')
@@ -101,34 +107,35 @@ describe('chapter-and-verse', () => {
         book: {
           name: 'Obadiah'
         },
+        success: true,
+        reason: 'starts with book.start',
         chapter: 1,
         from: 21,
-        to: 21,
-        reason: 'starts with book.start'
+        to: 21
       })
       expect(cv.toString()).to.equal('Obadiah 1:21')
       expect(cv.toShortString()).to.equal('Obadiah 21')
       expect(cv.getType()).to.equal('verse')
     })
 
-    it('returns null where chapter is zero', () => {
+    it('returns failure where chapter is zero', () => {
       cv = chapterAndVerse('exo 0')
-      expect(cv).to.be.null
+      expect(cv).to.eql(errors.chapter)
     })
 
-    it('returns null where chapter does not exist', () => {
+    it('returns failure where chapter does not exist', () => {
       cv = chapterAndVerse('exo 41')
-      expect(cv).to.be.null
+      expect(cv).to.eql(errors.chapter)
     })
 
-    it('returns null where verse is zero', () => {
+    it('returns failure where verse is zero', () => {
       cv = chapterAndVerse('oba 0')
-      expect(cv).to.be.null
+      expect(cv).to.eql(errors.verse)
     })
 
-    it('returns null where verse does not exist', () => {
+    it('returns failure where verse does not exist', () => {
       cv = chapterAndVerse('oba 22')
-      expect(cv).to.be.null
+      expect(cv).to.eql(errors.verse)
     })
   })
 
@@ -140,19 +147,20 @@ describe('chapter-and-verse', () => {
         book: {
           name: 'Obadiah'
         },
+        success: true,
+        reason: 'starts with book.start',
         chapter: 1,
         from: 1,
-        to: 5,
-        reason: 'starts with book.start'
+        to: 5
       })
       expect(cv.toString()).to.equal('Obadiah 1:1-5')
       expect(cv.toShortString()).to.equal('Obadiah 1-5')
       expect(cv.getType()).to.equal('verses')
     })
 
-    it('returns null for multi chapter book', () => {
+    it('returns failure for multi chapter book', () => {
       cv = chapterAndVerse('exo 5-7')
-      expect(cv).to.be.null
+      expect(cv).to.eql(errors.bookVersesFormat)
     })
   })
 
@@ -164,19 +172,20 @@ describe('chapter-and-verse', () => {
         book: {
           name: 'Exodus'
         },
+        success: true,
+        reason: 'starts with book.start',
         chapter: 7,
         from: 25,
-        to: 25,
-        reason: 'starts with book.start'
+        to: 25
       })
       expect(cv.toString()).to.equal('Exodus 7:25')
       expect(cv.toShortString()).to.equal('Exodus 7:25')
       expect(cv.getType()).to.equal('verse')
     })
 
-    it('returns null where chapter does not exist', () => {
+    it('returns failure where chapter does not exist', () => {
       cv = chapterAndVerse('exo 41:57')
-      expect(cv).to.be.null
+      expect(cv).to.eql(errors.chapter)
     })
   })
 
@@ -188,10 +197,11 @@ describe('chapter-and-verse', () => {
         book: {
           name: 'Exodus'
         },
+        success: true,
+        reason: 'starts with book.start',
         chapter: 33,
         from: 20,
-        to: 23,
-        reason: 'starts with book.start'
+        to: 23
       })
       expect(cv.toString()).to.equal('Exodus 33:20-23')
       expect(cv.toShortString()).to.equal('Exodus 33:20-23')
@@ -205,6 +215,7 @@ describe('chapter-and-verse', () => {
       cv = chapterAndVerse('exo 33:7-12')
       expect(cv).to.containSubset({
         book: {id: 'Exod', name: 'Exodus', testament: 'O', start: 'exo', abbr: ['ex'], chapters: 40},
+        success: true,
         reason: 'starts with book.start',
         chapter: 33,
         from: 7,
@@ -226,19 +237,19 @@ describe('chapter-and-verse', () => {
 
   describe('invalid', () => {
 
-    it('returns null where no format applies', () => {
+    it('returns failure where no format applies', () => {
       cv = chapterAndVerse('exo 10a')
-      expect(cv).to.be.null
+      expect(cv).to.eql(errors.format)
     })
 
-    it('returns null where non string arg given', () => {
+    it('returns failure where non string arg given', () => {
       cv = chapterAndVerse(9)
-      expect(cv).to.be.null
+      expect(cv).to.eql(errors.type)
     })
 
-    it('returns null where no arg given', () => {
+    it('returns failure where no arg given', () => {
       cv = chapterAndVerse()
-      expect(cv).to.be.null
+      expect(cv).to.eql(errors.format)
     })
   })
 

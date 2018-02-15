@@ -1,8 +1,6 @@
 TODO
 ----
 
-* Respond with success boolean property and reason for failure?
-
 * next and previous? prob not - if so if book, next book, if chapter, next chapter, if verse, next verse - what about verses?
 
 * Unit tests

@@ -25,8 +25,8 @@ It is particularly useful when formulating bible reference based URLs and for de
 | format              	| example       	| notes                     	|
 |---------------------	|---------------	|---------------------------	|
 | book                	| Genesis       	|                           	|
-| book chapter        	| Genesis 5     	|                           	|
-| book verse          	| Obadiah 3     	| single chapter books only 	|
+| book chapter        	| Genesis 5     	| multi chapter books       	|
+| book verse          	| Obadiah 3     	| single chapter books      	|
 | book verses         	| Obadiah 3-5   	| single chapter books only 	|
 | book chapter:verse  	| Genesis 5:1   	|                           	|
 | book chapter:verses 	| Genesis 5:1-4 	|                           	|

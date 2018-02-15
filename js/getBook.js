@@ -1,12 +1,14 @@
 const _ = require('lodash')
 const books = require('./books')
 const osis = require('./osis')
+const errors = require('./errors')
 
-const CV = function(book, reason) {
+function CV(book, reason) {
   this.book = book
   const vpcBook = _.find(books, {id: book.id})
   this.book.versesPerChapter = vpcBook.chapters
 
+  this.success = true
   this.reason = reason
   this.chapter = null
   this.from = null
@@ -73,7 +75,7 @@ const getBook = strBook => {
       return new CV(book, 'starts with book.start')
     }
   }
-  return null
+  return errors.book
 }
 
 module.exports = getBook
