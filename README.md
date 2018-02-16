@@ -158,11 +158,11 @@ This happens when the:
 
 * Chapter does not exist
 
-* Verse does not exist - see [translation specifics](#translation-specifics "Jesus loves you")
+* Verse does not exist - see [Translation specifics](#translation-specifics "Jesus loves you")
 
-* "book verses" reference format - see [supported reference formats](#supported-reference-formats "Jesus loves you") - is used in conjunction with a multi chapter book
+* "book verses" reference format - see [Supported reference formats](#supported-reference-formats "Jesus loves you") - is used in conjunction with a multi chapter book
 
-* reference format is unrecognised - see [supported reference formats](#supported-reference-formats "Jesus loves you")
+* reference format is unrecognised - see [Supported reference formats](#supported-reference-formats "Jesus loves you")
 
 * reference is not a string
 
@@ -170,9 +170,9 @@ This happens when the:
 
 
 
-## Accuracy of biblical data
-
 <br>
+
+## Accuracy of biblical data
 
 All our chapter and verse data has been "triple checked" as follows:
 
