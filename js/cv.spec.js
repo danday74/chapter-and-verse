@@ -256,28 +256,28 @@ describe('chapter-and-verse', () => {
       cv = chapterAndVerse(9)
       expect(() => {
         cv.toString()
-      }).to.throw(/toString.+reference not a string/)
+      }).to.throw(/toString.+the reference is not a string/)
     })
 
     it('throws when toShortString is called', () => {
       cv = chapterAndVerse(9)
       expect(() => {
         cv.toShortString()
-      }).to.throw(/toShortString.+reference not a string/)
+      }).to.throw(/toShortString.+the reference is not a string/)
     })
 
     it('throws when getType is called', () => {
       cv = chapterAndVerse(9)
       expect(() => {
         cv.getType()
-      }).to.throw(/getType.+reference not a string/)
+      }).to.throw(/getType.+the reference is not a string/)
     })
 
     it('throws when toSimpleObject is called', () => {
       cv = chapterAndVerse(9)
       expect(() => {
         cv.toSimpleObject()
-      }).to.throw(/toSimpleObject.+reference not a string/)
+      }).to.throw(/toSimpleObject.+the reference is not a string/)
     })
   })
 
