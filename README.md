@@ -188,7 +188,7 @@ All our chapter and verse data has been "triple checked" as follows:
 
 ## Translation specifics
 
-Certain verses only exist in certain translations. Most notably:
+Certain verses only exist in certain translations.
 
 * 3 John 15
 
