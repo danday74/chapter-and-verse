@@ -1,10 +1,10 @@
 # chapter-and-verse
 
-[![build](https://img.shields.io/travis/danday74/chapter-and-verse/master.svg?label=linux)](https://travis-ci.org/danday74/chapter-and-verse)
-[![coverage](https://coveralls.io/repos/github/danday74/chapter-and-verse/badge.svg)](https://coveralls.io/github/danday74/chapter-and-verse)
-[![npm](https://img.shields.io/npm/v/chapter-and-verse.svg)](https://www.npmjs.com/package/chapter-and-verse)
-[![dependencies](https://david-dm.org/danday74/chapter-and-verse/status.svg)](https://david-dm.org/danday74/chapter-and-verse)
-[![downloads](https://img.shields.io/npm/dm/chapter-and-verse.svg)](https://www.npmjs.com/package/chapter-and-verse)
+[![build](https://img.shields.io/travis/danday74/chapter-and-verse/master.svg?label=linux)](https://travis-ci.org/danday74/chapter-and-verse "Jesus loves you")
+[![coverage](https://coveralls.io/repos/github/danday74/chapter-and-verse/badge.svg)](https://coveralls.io/github/danday74/chapter-and-verse "Jesus loves you")
+[![npm](https://img.shields.io/npm/v/chapter-and-verse.svg)](https://www.npmjs.com/package/chapter-and-verse "Jesus loves you")
+[![dependencies](https://david-dm.org/danday74/chapter-and-verse/status.svg)](https://david-dm.org/danday74/chapter-and-verse "Jesus loves you")
+[![downloads](https://img.shields.io/npm/dm/chapter-and-verse.svg)](https://www.npmjs.com/package/chapter-and-verse "Jesus loves you")
 
 **Given a bible reference, validates it and returns an object with book, chapter, verse and more**
 
@@ -20,9 +20,11 @@ If invalid, it returns a JSON object with the reason for failure.
 
 `chapter-and-verse` understands all common bible book abbreviations and has its own built-in book identification algorithm.
 
-It is particularly useful when formulating bible reference based URLs, for dealing with complex bible APIs / raw user input and, of course, for validation.
+It is useful when building bible reference based URLs, for integrating with bible APIs and for validating raw user input.
 
 `chapter-and-verse` is written by a professional developer, has 100% unit test coverage and is ready for production use.
+
+All our biblical data has been [triple checked](#accuracy-of-biblical-data "Jesus loves you"), ensuring accuracy.
 
 
 
@@ -86,7 +88,7 @@ if (cv.success === false) {
 }
 ```
 
-For detailed information on validation see the [Validation](#validation) section below.
+For detailed information on validation see the [Validation](#validation "Jesus loves you") section below.
 
 
 
@@ -154,11 +156,11 @@ This happens when the:
 
 * Chapter does not exist
 
-* Verse does not exist - see [translation complexities](#translation-complexities)
+* Verse does not exist - see [translation specifics](#translation-specifics "Jesus loves you")
 
-* "book verses" reference format - see [supported reference formats](#supported-reference-formats) - is used in conjunction with a multi chapter book
+* "book verses" reference format - see [supported reference formats](#supported-reference-formats "Jesus loves you") - is used in conjunction with a multi chapter book
 
-* reference format is unrecognised - see [supported reference formats](#supported-reference-formats)
+* reference format is unrecognised - see [supported reference formats](#supported-reference-formats "Jesus loves you")
 
 * reference is not a string
 
@@ -166,19 +168,41 @@ This happens when the:
 
 
 
+## Accuracy of biblical data
+
 <br>
 
-## Translation complexities
+All our chapter and verse data has been "triple checked" as follows:
 
-Certain verses only exist in certain translation. Most notably:
+(1) The data was entered manually and manually checked.
 
-* KJV - 3 John 15 does not exist, it has been merged with 3 John 14
+(2) We then ran code against our data, ensuring verse and chapter totals were correct.
 
-* ESV and other modern English translation - Certain New Testament verses, which exist in the KJV, have been removed
+(3) Finally, we programmatically tested our data against other online sources to ensure "total agreement".
 
-`chapter-and-verse` is not aware of translation specifics and assumes that all verses exist.
 
-For an in-depth discussion on missing verses see [missing verses](https://en.wikipedia.org/wiki/List_of_New_Testament_verses_not_included_in_modern_English_translations)
+
+<br>
+
+## Translation specifics
+
+Certain verses only exist in certain translations. Most notably:
+
+* 3 John 15
+
+`chapter-and-verse` reports 3 John 15 as valid. However, this verse does not exist in the KJV where it has been merged with 3 John 14.
+
+This is the only discrepancy with the KJV.
+
+* Omitted verses
+
+In modern English translation, certain New Testament verses, which exist in the KJV, have been omitted.
+
+For example, Matthew 17:21 ESV does not exist whereas Matthew 17:21 KJV does exist.
+
+`chapter-and-verse` treats all omitted verses as valid and is not concerned with translation specifics.
+
+For an in-depth discussion see [omitted verses](https://en.wikipedia.org/wiki/List_of_New_Testament_verses_not_included_in_modern_English_translations "Jesus loves you")
 
 
 
