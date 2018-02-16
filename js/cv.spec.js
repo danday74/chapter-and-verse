@@ -235,21 +235,49 @@ describe('chapter-and-verse', () => {
     })
   })
 
-  describe('invalid', () => {
+  describe('failure', () => {
 
     it('returns failure where no format applies', () => {
       cv = chapterAndVerse('exo 10a')
-      expect(cv).to.eql(errors.format)
+      expect(cv).to.equal(errors.format)
     })
 
     it('returns failure where non string arg given', () => {
       cv = chapterAndVerse(9)
-      expect(cv).to.eql(errors.type)
+      expect(cv).to.equal(errors.type)
     })
 
     it('returns failure where no arg given', () => {
       cv = chapterAndVerse()
-      expect(cv).to.eql(errors.format)
+      expect(cv).to.equal(errors.format)
+    })
+
+    it('throws when toString is called', () => {
+      cv = chapterAndVerse(9)
+      expect(() => {
+        cv.toString()
+      }).to.throw(/toString.+reference not a string/)
+    })
+
+    it('throws when toShortString is called', () => {
+      cv = chapterAndVerse(9)
+      expect(() => {
+        cv.toShortString()
+      }).to.throw(/toShortString.+reference not a string/)
+    })
+
+    it('throws when getType is called', () => {
+      cv = chapterAndVerse(9)
+      expect(() => {
+        cv.getType()
+      }).to.throw(/getType.+reference not a string/)
+    })
+
+    it('throws when toSimpleObject is called', () => {
+      cv = chapterAndVerse(9)
+      expect(() => {
+        cv.toSimpleObject()
+      }).to.throw(/toSimpleObject.+reference not a string/)
     })
   })
 
