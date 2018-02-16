@@ -14,9 +14,9 @@
 
 ## Introduction
 
-Throw a bible reference at `chapter-and-verse` and, if the reference is valid, it returns a detailed JSON object for that reference.
+Throw a bible reference at `chapter-and-verse` and, if valid, it returns a detailed JSON object for that reference.
 
-If invalid, it returns a JSON object with the reason for failure.
+If the reference is invalid, it returns a JSON object with the reason for failure.
 
 `chapter-and-verse` understands all common bible book abbreviations and has its own built-in book identification algorithm.
 
