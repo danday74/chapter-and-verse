@@ -194,7 +194,7 @@ Certain verses only exist in certain translations.
 
 `chapter-and-verse` reports 3 John 15 as valid. However, this verse does not exist in the KJV wherein it has been merged with 3 John 14.
 
-This is the only discrepancy with the KJV.
+This is the only `chapter-and-verse` discrepancy with the KJV.
 
 Compare [3 John 14-15 ESV](https://www.biblegateway.com/passage/?search=3+john+14-15&version=ESV "Jesus loves you") with [3 John 14 KJV](https://www.biblegateway.com/passage/?search=3+john+14&version=KJV "Jesus loves you")
 
