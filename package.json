@@ -1,6 +1,6 @@
 {
   "name": "chapter-and-verse",
-  "version": "1.1.3",
+  "version": "2.0.0",
   "description": "Given a bible reference, validates it and returns an object with book, chapter, verse and more",
   "author": "danday74",
   "license": "ISC",
@@ -40,7 +40,21 @@
     "bible reference",
     "bible references",
     "bible json",
-    "bible object"
+    "bible object",
+
+    "bible validation",
+    "bible validator",
+    "bible ref validation",
+    "bible ref validator",
+    "bible reference validation",
+    "bible reference validator",
+
+    "biblical validation",
+    "biblical validator",
+    "biblical ref validation",
+    "biblical ref validator",
+    "biblical reference validation",
+    "biblical reference validator"
   ],
   "repository": {
     "type": "git",
