@@ -77,7 +77,7 @@ describe('chapter-and-verse', () => {
     })
 
     it('starts with returns failure where str is too long', () => {
-      cv = chapterAndVerse('Exoduss')
+      cv = chapterAndVerse('1 Chronicless')
       expect(cv).to.eql(errors.book)
     })
   })
