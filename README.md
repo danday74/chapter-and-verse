@@ -20,7 +20,7 @@ If invalid, it returns a JSON object with the reason for failure.
 
 `chapter-and-verse` understands all common bible book abbreviations and has its own built-in book identification algorithm.
 
-It is useful when building bible reference based URLs, for integrating with bible APIs and for validating raw user input.
+It is useful when building biblical reference based URLs, for integrating with bible APIs and for validating raw user input.
 
 `chapter-and-verse` is written by a professional developer, has 100% unit test coverage and is ready for production use.
 
