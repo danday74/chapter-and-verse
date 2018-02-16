@@ -146,6 +146,7 @@ Which returns:
 
 ```json
 {
+  "book": {},
   "success": false,
   "reason": "book does not exist"
 }
