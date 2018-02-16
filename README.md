@@ -166,7 +166,7 @@ This happens when the:
 
 * reference is not a string
 
-`chapter-and-verse` is **NOT** intended to recognise apocryphal books.
+`chapter-and-verse` does **NOT** recognise apocryphal books.
 
 
 
