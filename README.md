@@ -89,7 +89,7 @@ if (cv.success === false) {
 }
 ```
 
-For detailed information on validation see the [Validation](#validation "Jesus loves you") section below.
+For more information see the [Validation](#validation "Jesus loves you") section.
 
 
 
