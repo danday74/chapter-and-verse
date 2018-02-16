@@ -79,12 +79,13 @@ To validate a reference:
 
 ```javascript 1.7
 const chapterAndVerse = require('chapter-and-verse')
-let cv = chapterAndVerse('Dan 4:1-3')
+const ref = 'Dan 4:1-3'
+let cv = chapterAndVerse(ref)
 if (cv.success === true) {
-  // Put your VALID reference code here
+  console.log(ref + ' is valid')
 }
 if (cv.success === false) {
-  // Put your INVALID reference code here
+  console.log(ref + ' is invalid because ' + cv.reason)
 }
 ```
 

@@ -30,8 +30,8 @@ const errors = {
   verse: new Failure('verse does not exist'),
 
   bookVersesFormat: new Failure('the "book verses" reference format only supports single chapter books'),
-  format: new Failure('reference format unrecognised'),
-  type: new Failure('reference not a string')
+  format: new Failure('the reference format is unrecognised'),
+  type: new Failure('the reference is not a string')
 }
 
 module.exports = errors
