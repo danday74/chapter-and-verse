@@ -24,7 +24,7 @@ It is useful when building biblical reference based URLs, for integrating with b
 
 `chapter-and-verse` is written by a professional developer, has 100% unit test coverage and is ready for production use.
 
-All our biblical data has been [triple checked](#accuracy-of-biblical-data "Jesus loves you"), ensuring accuracy.
+All our biblical data has been [triple checked](#accuracy-of-biblical-data "Jesus loves you") to ensure reliability.
 
 
 
