@@ -104,11 +104,11 @@ Use `cv.toString()` and `cv.toShortString()` as follows:
 ```javascript 1.7
 cv = chapterAndVerse('Dan 4:1-3')
 cv.toString() // returns 'Daniel 4:1-3'
-cv.toShortString() // returns 'Daniel 4:1-3' .. no difference because Daniel has multiple chapters
+cv.toShortString() // returns 'Daniel 4:1-3' .. no difference because Daniel is a multi chapter book
 
 cv = chapterAndVerse('ob 1-3')
 cv.toString() // returns 'Obadiah 1:1-3'
-cv.toShortString() // returns 'Obadiah 1-3' .. difference because Obadiah only has a single chapter
+cv.toShortString() // returns 'Obadiah 1-3' .. difference because Obadiah is a single chapter book
 ```
 
 `cv.getType()` returns one of 'book', 'chapter', 'verses' or 'verse'
