@@ -200,7 +200,7 @@ Compare [3 John 14-15 ESV](https://www.biblegateway.com/passage/?search=3+john+1
 
 * Omitted verses
 
-In modern English translation, certain New Testament verses, which exist in the KJV, have been omitted.
+In modern English translations, certain New Testament verses, which exist in the KJV, have been omitted.
 
 For example, Matthew 17:21 ESV does not exist whereas Matthew 17:21 KJV does exist.
 
