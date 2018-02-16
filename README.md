@@ -202,7 +202,7 @@ Compare [3 John 14-15 ESV](https://www.biblegateway.com/passage/?search=3+john+1
 
 In modern English translations, certain New Testament verses, which exist in the KJV, have been omitted.
 
-For example, **Matthew 17:21** ESV does not exist whereas [Matthew 17:21 KJV](https://www.biblegateway.com/passage/?search=matthew+17%3A21&version=KJV "Jesus loves you") does exist.
+For example, **Matthew 17:21 ESV** does not exist whereas [Matthew 17:21 KJV](https://www.biblegateway.com/passage/?search=matthew+17%3A21&version=KJV "Jesus loves you") does exist.
 
 `chapter-and-verse` treats all omitted verses as valid and is not concerned with translation specifics.
 
