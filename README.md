@@ -49,6 +49,10 @@ All our biblical data has been [triple checked](#accuracy-of-biblical-data "Jesu
 
 ## Usage
 
+```npm install --save chapter-and-verse```
+
+Usage:
+
 ```javascript 1.7
 const chapterAndVerse = require('chapter-and-verse')
 let cv = chapterAndVerse('Dan 4:1-3')
