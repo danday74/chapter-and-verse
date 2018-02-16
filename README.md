@@ -32,7 +32,7 @@ All our biblical data has been [triple checked](#accuracy-of-biblical-data "Jesu
 
 ## Supported reference formats
 
-`chapter-and-verse` handles all the following reference formats:
+`chapter-and-verse` supports all the following reference formats:
 
 | format              	| example       	| notes                     	|
 |---------------------	|---------------	|---------------------------	|
