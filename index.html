@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>chapter-and-verse</title>
+  <script src="browser.js"></script>
+</head>
+<body>
+<div id="input">Gn 3:2-4</div>
+<div id="output"></div>
+<script>
+  const text = document.getElementById('input').innerText
+  const el = document.getElementById('output')
+  el.innerText = chapterAndVerse(text).toSimpleObject().asShortString
+</script>
+</body>
+</html>
