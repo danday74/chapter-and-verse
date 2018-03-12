@@ -26,6 +26,8 @@ It is useful when building biblical reference based URLs, for integrating with b
 
 All our biblical data has been [triple checked](#accuracy-of-biblical-data "Jesus loves you") to ensure reliability.
 
+`chapter-and-verse` works both server side and client side.
+
 
 
 <br>
@@ -49,7 +51,7 @@ All our biblical data has been [triple checked](#accuracy-of-biblical-data "Jesu
 
 ## Usage
 
-```npm install --save chapter-and-verse```
+`npm install --save chapter-and-verse`
 
 Usage:
 
@@ -94,6 +96,31 @@ if (cv.success === false) {
 ```
 
 For more information see the [Validation](#validation "Jesus loves you") section.
+
+
+
+<br>
+
+## Browser usage
+
+`npm install --save chapter-and-verse`
+
+Add a script tag in head:
+
+```HTML
+<script src="node_modules/chapter-and-verse/browser.js"></script>
+```
+
+Then use as follows:
+
+```HTML
+<script>
+  const cv = chapterAndVerse('Gn')
+  console.log(cv.book.name) // Genesis
+</script>
+```
+
+You can validate a reference as described in the [Usage](#usage "Jesus loves you") section.
 
 
 
