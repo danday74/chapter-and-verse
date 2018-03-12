@@ -1,5 +1,8 @@
-/.idea/
+/.idea/*
+!/.idea/runConfigurations
+
 /coverage/
 /node_modules/
+
 *.log
 deleteme.js
