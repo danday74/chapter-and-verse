@@ -26,7 +26,7 @@ It is useful when building biblical reference based URLs, for integrating with b
 
 All our biblical data has been [triple checked](#accuracy-of-biblical-data "Jesus loves you") to ensure reliability.
 
-`chapter-and-verse` works both server side and client side.
+`chapter-and-verse` works in Node code and browsers.
 
 
 
