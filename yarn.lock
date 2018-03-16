@@ -2132,6 +2132,15 @@ gh-got@^6.0.0:
     got "^7.0.0"
     is-plain-obj "^1.1.0"
 
+git-commit-file@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/git-commit-file/-/git-commit-file-1.2.5.tgz#8da9a58f8f0845dc01fd0377f0cf1cbac3c0778d"
+  dependencies:
+    chalk "^2.3.2"
+    find-up "^2.1.0"
+    shelljs.exec "^1.1.7"
+    yargs "^11.0.0"
+
 github-username@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/github-username/-/github-username-4.1.0.tgz#cbe280041883206da4212ae9e4b5f169c30bf417"
