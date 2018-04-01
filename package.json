@@ -12,7 +12,7 @@
     "test": "npm run verify && npm run mocha",
     "enforcer": "istanbul check-coverage --statement 100 --branch 100 --function 100 --line 100",
     "build": "npm test && npm run enforcer",
-    "browserify": "webpack --mode production && gcf",
+    "browserify": "webpack --mode production && (gcf || true)",
     "postcommit": "cross-env FORCE_COLOR=true npm run browserify",
     "prepush": "npm run build"
   },
