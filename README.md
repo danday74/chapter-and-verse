@@ -108,7 +108,7 @@ For more information see the [Validation](#validation "Jesus loves you") section
 Add a script tag in head:
 
 ```HTML
-<script src="node_modules/chapter-and-verse/browser.js"></script>
+<script src="node_modules/chapter-and-verse/chapterAndVerse.js"></script>
 ```
 
 Then use as follows:

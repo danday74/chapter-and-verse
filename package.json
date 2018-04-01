@@ -5,7 +5,7 @@
   "author": "danday74",
   "license": "ISC",
   "main": "index.js",
-  "browser": "browser.js",
+  "browser": "chapterAndVerse.js",
   "scripts": {
     "verify": "node verify",
     "mocha": "istanbul cover -x \"**/*.spec.js\" ./node_modules/mocha/bin/_mocha -- js",

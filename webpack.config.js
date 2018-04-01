@@ -6,7 +6,7 @@ module.exports = {
   entry: './index.js',
   output: {
     path: __dirname,
-    filename: 'browser.js',
+    filename: library + '.js',
     library
   }
 }
