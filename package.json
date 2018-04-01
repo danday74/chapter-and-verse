@@ -1,6 +1,6 @@
 {
   "name": "chapter-and-verse",
-  "version": "2.0.7",
+  "version": "3.0.0",
   "description": "Given a bible reference, validates it and returns an object with book, chapter, verse and more",
   "author": "danday74",
   "license": "ISC",
