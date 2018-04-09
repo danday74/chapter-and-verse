@@ -2,6 +2,8 @@ const _ = require('lodash')
 const books = require('./books')
 const osis = require('./osis')
 const errors = require('./errors')
+const getChapter = require('./getChapter')
+const getVerses = require('./getVerses')
 
 function CV(book, reason) {
   this.book = book
@@ -60,6 +62,56 @@ CV.prototype.toSimpleObject = function() {
     from: this.from,
     to: this.to
   }
+}
+
+CV.prototype.next = function() {
+
+  const NEXT = {
+    BOOK: 'next book',
+    CHAPTER: 'next chapter',
+    VERSE: 'next verse'
+  }
+
+  let cv
+  const nextBook = _.find(osis, {order: this.book.order + 1})
+
+  if (this.getType() === 'book') {
+    return (nextBook) ? new CV(nextBook, NEXT.BOOK) : errors.nextBook
+  }
+
+  if (this.getType() === 'chapter') {
+    // current book > next chapter
+    cv = new CV(this.book, NEXT.CHAPTER)
+    cv = getChapter(cv, this.chapter + 1)
+    if (!cv.success) {
+      if (!nextBook) return errors.nextChapter
+      // next book > 1st chapter
+      cv = new CV(nextBook, NEXT.CHAPTER)
+      cv = getChapter(cv, 1)
+    }
+  }
+
+  if (this.getType() === 'verse' || this.getType() === 'verses') {
+    // current book > current chapter > next verse
+    cv = new CV(this.book, NEXT.VERSE)
+    cv = getChapter(cv, this.chapter)
+    cv = getVerses(cv, (this.to + 1).toString())
+    if (!cv.success) {
+      // current book > next chapter > 1st verse
+      cv = new CV(this.book, NEXT.VERSE)
+      cv = getChapter(cv, this.chapter + 1)
+      if (cv.success) {
+        cv = getVerses(cv, '1')
+      } else {
+        if (!nextBook) return errors.nextVerse
+        // next book > 1st chapter > 1st verse
+        cv = new CV(nextBook, NEXT.VERSE)
+        cv = getChapter(cv, 1)
+        cv = getVerses(cv, '1')
+      }
+    }
+  }
+  return cv
 }
 
 const getBook = strBook => {

@@ -235,6 +235,49 @@ describe('chapter-and-verse', () => {
     })
   })
 
+  describe('next', () => {
+
+    it('book', () => {
+      let bookCount = 0
+      cv = chapterAndVerse('gen')
+      while (cv.success) {
+        bookCount++
+        cv = cv.next()
+      }
+      expect(bookCount).to.equal(66)
+    })
+
+    it('chapter', () => {
+      let chapterCount = 0
+      cv = chapterAndVerse('gen 1')
+      while (cv.success) {
+        chapterCount++
+        cv = cv.next()
+      }
+      expect(chapterCount).to.equal(1189)
+    })
+
+    it('verse', () => {
+      let verseCount = 0
+      cv = chapterAndVerse('gen 1:1')
+      while (cv.success) {
+        verseCount++
+        cv = cv.next()
+      }
+      expect(verseCount).to.equal(31103)
+    })
+
+    it('multiple verses', () => {
+      let verseCount = 0
+      cv = chapterAndVerse('gen 1:1-4')
+      while (cv.success) {
+        verseCount++
+        cv = cv.next()
+      }
+      expect(verseCount).to.equal(31100)
+    })
+  })
+
   describe('failure', () => {
 
     it('returns failure where no format applies', () => {
@@ -250,6 +293,21 @@ describe('chapter-and-verse', () => {
     it('returns failure where no arg given', () => {
       cv = chapterAndVerse()
       expect(cv).to.equal(errors.format)
+    })
+
+    it('returns failure where next book does not exist', () => {
+      cv = chapterAndVerse('rev')
+      expect(cv.next()).to.equal(errors.nextBook)
+    })
+
+    it('returns failure where next chapter does not exist', () => {
+      cv = chapterAndVerse('rev 22')
+      expect(cv.next()).to.equal(errors.nextChapter)
+    })
+
+    it('returns failure where next verse does not exist', () => {
+      cv = chapterAndVerse('rev 22:21')
+      expect(cv.next()).to.equal(errors.nextVerse)
     })
 
     it('throws when toString is called', () => {
@@ -278,6 +336,13 @@ describe('chapter-and-verse', () => {
       expect(() => {
         cv.toSimpleObject()
       }).to.throw(/toSimpleObject.+the reference is not a string/)
+    })
+
+    it('throws when next is called', () => {
+      cv = chapterAndVerse(9)
+      expect(() => {
+        cv.next()
+      }).to.throw(/next.+the reference is not a string/)
     })
   })
 
