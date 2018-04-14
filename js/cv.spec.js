@@ -6,6 +6,25 @@ const _ = require('lodash')
 const chapterAndVerse = require('./cv')
 const errors = require('./errors')
 
+const FIRST = {
+  BOOK: 'gen',
+  CHAPTER: 'gen 1',
+  VERSE: 'gen 1:1',
+  VERSES: 'gen 1:1-4'
+}
+const LAST = {
+  BOOK: 'rev',
+  CHAPTER: 'rev 22',
+  VERSE: 'rev 22:21',
+  VERSES: 'rev 22:18-21'
+}
+const SUMS = {
+  BOOK: 66,
+  CHAPTER: 1189,
+  VERSE: 31103,
+  VERSES: 31100
+}
+
 let cv
 
 describe('chapter-and-verse', () => {
@@ -239,42 +258,85 @@ describe('chapter-and-verse', () => {
 
     it('book', () => {
       let bookCount = 0
-      cv = chapterAndVerse('gen')
+      cv = chapterAndVerse(FIRST.BOOK)
       while (cv.success) {
         bookCount++
         cv = cv.next()
       }
-      expect(bookCount).to.equal(66)
+      expect(bookCount).to.equal(SUMS.BOOK)
     })
 
     it('chapter', () => {
       let chapterCount = 0
-      cv = chapterAndVerse('gen 1')
+      cv = chapterAndVerse(FIRST.CHAPTER)
       while (cv.success) {
         chapterCount++
         cv = cv.next()
       }
-      expect(chapterCount).to.equal(1189)
+      expect(chapterCount).to.equal(SUMS.CHAPTER)
     })
 
     it('verse', () => {
       let verseCount = 0
-      cv = chapterAndVerse('gen 1:1')
+      cv = chapterAndVerse(FIRST.VERSE)
       while (cv.success) {
         verseCount++
         cv = cv.next()
       }
-      expect(verseCount).to.equal(31103)
+      expect(verseCount).to.equal(SUMS.VERSE)
     })
 
     it('multiple verses', () => {
       let verseCount = 0
-      cv = chapterAndVerse('gen 1:1-4')
+      cv = chapterAndVerse(FIRST.VERSES)
       while (cv.success) {
         verseCount++
         cv = cv.next()
       }
-      expect(verseCount).to.equal(31100)
+      expect(verseCount).to.equal(SUMS.VERSES)
+    })
+  })
+
+  describe('prev', () => {
+
+    it('book', () => {
+      let bookCount = 0
+      cv = chapterAndVerse(LAST.BOOK)
+      while (cv.success) {
+        bookCount++
+        cv = cv.prev()
+      }
+      expect(bookCount).to.equal(SUMS.BOOK)
+    })
+
+    it('chapter', () => {
+      let chapterCount = 0
+      cv = chapterAndVerse(LAST.CHAPTER)
+      while (cv.success) {
+        chapterCount++
+        cv = cv.prev()
+      }
+      expect(chapterCount).to.equal(SUMS.CHAPTER)
+    })
+
+    it('verse', () => {
+      let verseCount = 0
+      cv = chapterAndVerse(LAST.VERSE)
+      while (cv.success) {
+        verseCount++
+        cv = cv.prev()
+      }
+      expect(verseCount).to.equal(SUMS.VERSE)
+    })
+
+    it('multiple verses', () => {
+      let verseCount = 0
+      cv = chapterAndVerse(LAST.VERSES)
+      while (cv.success) {
+        verseCount++
+        cv = cv.prev()
+      }
+      expect(verseCount).to.equal(SUMS.VERSES)
     })
   })
 
@@ -296,18 +358,33 @@ describe('chapter-and-verse', () => {
     })
 
     it('returns failure where next book does not exist', () => {
-      cv = chapterAndVerse('rev')
+      cv = chapterAndVerse(LAST.BOOK)
       expect(cv.next()).to.equal(errors.nextBook)
     })
 
     it('returns failure where next chapter does not exist', () => {
-      cv = chapterAndVerse('rev 22')
+      cv = chapterAndVerse(LAST.CHAPTER)
       expect(cv.next()).to.equal(errors.nextChapter)
     })
 
     it('returns failure where next verse does not exist', () => {
-      cv = chapterAndVerse('rev 22:21')
+      cv = chapterAndVerse(LAST.VERSE)
       expect(cv.next()).to.equal(errors.nextVerse)
+    })
+
+    it('returns failure where previous book does not exist', () => {
+      cv = chapterAndVerse(FIRST.BOOK)
+      expect(cv.prev()).to.equal(errors.prevBook)
+    })
+
+    it('returns failure where previous chapter does not exist', () => {
+      cv = chapterAndVerse(FIRST.CHAPTER)
+      expect(cv.prev()).to.equal(errors.prevChapter)
+    })
+
+    it('returns failure where previous verse does not exist', () => {
+      cv = chapterAndVerse(FIRST.VERSE)
+      expect(cv.prev()).to.equal(errors.prevVerse)
     })
 
     it('throws when toString is called', () => {
@@ -343,6 +420,13 @@ describe('chapter-and-verse', () => {
       expect(() => {
         cv.next()
       }).to.throw(/next.+the reference is not a string/)
+    })
+
+    it('throws when prev is called', () => {
+      cv = chapterAndVerse(9)
+      expect(() => {
+        cv.prev()
+      }).to.throw(/prev.+the reference is not a string/)
     })
   })
 

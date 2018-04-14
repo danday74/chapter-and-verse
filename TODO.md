@@ -1,5 +1,13 @@
 * Next / prev for iteration ... test .next().prev() returns identical result
 
+* ES5 v ES6 functions
+
+* Test end of chapter next() and prev()
+
+* What's first, prev or next?
+
+* Make sure all next changes have a prev change
+
 * Add OSIS verse ref
 
 * Add scrollmapper verse ref - 01001001 - scrollmapper - https://github.com/scrollmapper/bible_databases

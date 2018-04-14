@@ -80,34 +80,84 @@ CV.prototype.next = function() {
   }
 
   if (this.getType() === 'chapter') {
-    // current book > next chapter
+    // current book, next chapter
     cv = new CV(this.book, NEXT.CHAPTER)
     cv = getChapter(cv, this.chapter + 1)
     if (!cv.success) {
       if (!nextBook) return errors.nextChapter
-      // next book > 1st chapter
+      // next book, 1st chapter
       cv = new CV(nextBook, NEXT.CHAPTER)
       cv = getChapter(cv, 1)
     }
   }
 
   if (this.getType() === 'verse' || this.getType() === 'verses') {
-    // current book > current chapter > next verse
+    // current book, current chapter, next verse
     cv = new CV(this.book, NEXT.VERSE)
     cv = getChapter(cv, this.chapter)
-    cv = getVerses(cv, (this.to + 1).toString())
+    cv = getVerses(cv, this.to + 1)
     if (!cv.success) {
-      // current book > next chapter > 1st verse
+      // current book, next chapter, 1st verse
       cv = new CV(this.book, NEXT.VERSE)
       cv = getChapter(cv, this.chapter + 1)
       if (cv.success) {
-        cv = getVerses(cv, '1')
+        cv = getVerses(cv, 1)
       } else {
         if (!nextBook) return errors.nextVerse
-        // next book > 1st chapter > 1st verse
+        // next book, 1st chapter, 1st verse
         cv = new CV(nextBook, NEXT.VERSE)
         cv = getChapter(cv, 1)
-        cv = getVerses(cv, '1')
+        cv = getVerses(cv, 1)
+      }
+    }
+  }
+  return cv
+}
+
+CV.prototype.prev = function() {
+
+  const PREV = {
+    BOOK: 'previous book',
+    CHAPTER: 'previous chapter',
+    VERSE: 'previous verse'
+  }
+
+  let cv
+  const prevBook = _.find(osis, {order: this.book.order - 1})
+
+  if (this.getType() === 'book') {
+    return (prevBook) ? new CV(prevBook, PREV.BOOK) : errors.prevBook
+  }
+
+  if (this.getType() === 'chapter') {
+    // current book, previous chapter
+    cv = new CV(this.book, PREV.CHAPTER)
+    cv = getChapter(cv, this.chapter - 1)
+    if (!cv.success) {
+      if (!prevBook) return errors.prevChapter
+      // previous book, last chapter
+      cv = new CV(prevBook, PREV.CHAPTER)
+      cv = getChapter(cv, cv.book.chapters)
+    }
+  }
+
+  if (this.getType() === 'verse' || this.getType() === 'verses') {
+    // current book, current chapter, previous verse
+    cv = new CV(this.book, PREV.VERSE)
+    cv = getChapter(cv, this.chapter)
+    cv = getVerses(cv, this.from - 1)
+    if (!cv.success) {
+      // current book, previous chapter, last verse
+      cv = new CV(this.book, PREV.VERSE)
+      cv = getChapter(cv, this.chapter - 1)
+      if (cv.success) {
+        cv = getVerses(cv, cv.book.versesPerChapter[cv.chapter - 1])
+      } else {
+        if (!prevBook) return errors.prevVerse
+        // previous book, last chapter, last verse
+        cv = new CV(prevBook, PREV.VERSE)
+        cv = getChapter(cv, cv.book.chapters)
+        cv = getVerses(cv, cv.book.versesPerChapter[cv.chapter - 1])
       }
     }
   }

@@ -1,6 +1,7 @@
 const errors = require('./errors')
 
 const getVerses = (cv, strVerses) => {
+  if (typeof strVerses === 'number') strVerses = strVerses.toString()
   const parts = strVerses.split('-')
   let from = parseInt(parts[0])
   let to = parseInt(parts[parts.length - 1])
