@@ -295,6 +295,14 @@ describe('chapter-and-verse', () => {
       }
       expect(verseCount).to.equal(SUMS.VERSES)
     })
+
+    it('reversal', () => {
+      cv = chapterAndVerse(FIRST.VERSE)
+      const cvReversal = cv.next().prev()
+      delete cv.reason
+      delete cvReversal.reason
+      expect(cv).to.eql(cvReversal)
+    })
   })
 
   describe('prev', () => {
@@ -337,6 +345,14 @@ describe('chapter-and-verse', () => {
         cv = cv.prev()
       }
       expect(verseCount).to.equal(SUMS.VERSES)
+    })
+
+    it('reversal', () => {
+      cv = chapterAndVerse(LAST.VERSE)
+      const cvReversal = cv.prev().next()
+      delete cv.reason
+      delete cvReversal.reason
+      expect(cv).to.eql(cvReversal)
     })
   })
 

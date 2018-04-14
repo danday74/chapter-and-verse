@@ -1,7 +1,3 @@
-* Next / prev for iteration ... test .next().prev() returns identical result
-
-* ES5 v ES6 functions
-
 * Test end of chapter next() and prev()
 
 * What's first, prev or next?
