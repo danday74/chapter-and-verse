@@ -4,7 +4,7 @@
 [![coverage](https://coveralls.io/repos/github/danday74/chapter-and-verse/badge.svg)](https://coveralls.io/github/danday74/chapter-and-verse "Jesus loves you")
 [![npm](https://img.shields.io/npm/v/chapter-and-verse.svg)](https://www.npmjs.com/package/chapter-and-verse "Jesus loves you")
 [![dependencies](https://david-dm.org/danday74/chapter-and-verse/status.svg)](https://david-dm.org/danday74/chapter-and-verse "Jesus loves you")
-[![downloads](https://img.shields.io/npm/dm/chapter-and-verse.svg)](https://www.npmjs.com/package/chapter-and-verse "Jesus loves you")
+[![downloads](https://img.shields.io/npm/dm/chapter-and-verse.svg)](https://www.npmjs.com/package/chapter-and-verse "Jesus loves you") [![Greenkeeper badge](https://badges.greenkeeper.io/danday74/chapter-and-verse.svg)](https://greenkeeper.io/)
 
 **Given a bible reference, validates it and returns an object with book, chapter, verse and more**
 
