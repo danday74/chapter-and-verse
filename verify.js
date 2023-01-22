@@ -1,4 +1,3 @@
-const _ = require('lodash')
 const chalk = require('chalk')
 const books = require('./js/books.json')
 const osis = require('./js/osis.json')
@@ -9,10 +8,10 @@ let totalVerseCount = 0
 osis.forEach(osis => {
 
   const id = osis.id
-  const book = _.find(books, {id})
+  const book = books.find(b => b.id === id)
   totalVerseCount += book.verseCount
   const chapterCount = book.chapters.length
-  const verseCount = _.sum(book.chapters)
+  const verseCount = book.chapters.reduce((acc, verseCount) => acc + verseCount, 0)
 
   if (chapterCount === 0) {
     exitCode = 1
