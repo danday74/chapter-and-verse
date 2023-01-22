@@ -1,4 +1,3 @@
-const _ = require('lodash')
 const books = require('./books.json')
 const osis = require('./osis.json')
 const errors = require('./errors')
@@ -7,7 +6,7 @@ const getVerses = require('./getVerses')
 
 function CV(book, reason) {
   this.book = book
-  const vpcBook = _.find(books, {id: book.id})
+  const vpcBook = books.find(b => b.id === book.id)
   this.book.versesPerChapter = vpcBook.chapters
 
   this.success = true
@@ -73,7 +72,7 @@ CV.prototype.next = function() {
   }
 
   let cv
-  const nextBook = _.find(osis, {order: this.book.order + 1})
+  const nextBook = osis.find(o => o.order === this.book.order + 1)
 
   if (this.getType() === 'book') {
     return (nextBook) ? new CV(nextBook, NEXT.BOOK) : errors.nextBook
@@ -123,7 +122,7 @@ CV.prototype.prev = function() {
   }
 
   let cv
-  const prevBook = _.find(osis, {order: this.book.order - 1})
+  const prevBook = osis.find(o => o.order === this.book.order - 1)
 
   if (this.getType() === 'book') {
     return (prevBook) ? new CV(prevBook, PREV.BOOK) : errors.prevBook
